@@ -1,11 +1,23 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:online_exam_app/core/theme/app_theme.dart';
-
 import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
 
-void main() {
-  runApp(const OnlineExamApp());
+void  main()async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await   EasyLocalization.ensureInitialized();
+  runApp(EasyLocalization(
+
+    supportedLocales: const [
+      Locale('ar'), // Arabic
+      Locale('en'), // English
+    ],
+    path: 'assets/translations', // Path to translation files
+    fallbackLocale: const Locale('en'), // Fallback language
+    startLocale: const Locale('en'),
+    child: const OnlineExamApp(),
+  ));
 }
 
 class OnlineExamApp extends StatelessWidget {
@@ -17,6 +29,9 @@ class OnlineExamApp extends StatelessWidget {
       builder: (context, constraints) {
         return SafeArea(
           child: MaterialApp(
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            locale: context.locale,
             debugShowCheckedModeBanner: false,
             navigatorKey: NavigationManager.navigationKey,
             routes: AppRoutes.routes,
