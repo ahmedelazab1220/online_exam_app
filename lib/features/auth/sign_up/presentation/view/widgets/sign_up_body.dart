@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:online_exam_app/core/utils/extenstion/translations.dart';
+import 'package:online_exam_app/features/auth/sign_up/presentation/view/widgets/password_field_sign_up.dart';
 import 'package:online_exam_app/features/auth/sign_up/presentation/view/widgets/user_name_field_sign_up.dart';
 
+import 'confirm_password_field.dart';
 import 'email_field_sign_up.dart';
 import 'first_name_field_sign_up.dart';
 import 'last_name_field_sign_up.dart';
@@ -31,6 +33,18 @@ class SignUpBody extends StatelessWidget {
             ),
             _buildSpacer(),
             EmailFieldSignUp(),
+            _buildSpacer(),
+            Row(
+              children: [
+                Expanded(
+                  child: PasswordFieldSignUp(),
+                ),
+                SizedBox(width: 16,),
+                Expanded(
+                    child: ConfirmPasswordField(),
+                )
+              ],
+            ),
           ],
         ),
       ),
