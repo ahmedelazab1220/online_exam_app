@@ -1,9 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:online_exam_app/core/assets/app_colors.dart';
 import 'package:online_exam_app/core/utils/extenstion/translations.dart';
 import 'package:online_exam_app/features/auth/sign_up/presentation/view/widgets/password_field_sign_up.dart';
 import 'package:online_exam_app/features/auth/sign_up/presentation/view/widgets/phone_field_sign_up.dart';
 import 'package:online_exam_app/features/auth/sign_up/presentation/view/widgets/user_name_field_sign_up.dart';
-
+import 'already_have_account_sign_up.dart';
 import 'button_sign_up.dart';
 import 'confirm_password_field.dart';
 import 'email_field_sign_up.dart';
@@ -17,17 +19,17 @@ class SignUpBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Column(
           children: [
             UserNameFieldSignUp(),
             _buildSpacer(),
-             Row(
+            Row(
               children: [
                 Expanded(
                   child: FirstNameFieldSignUp(),
                 ),
-                SizedBox(width: 16,),
+                const SizedBox(width: 16),
                 Expanded(
                   child: LastNameFieldSignUp(),
                 ),
@@ -41,9 +43,9 @@ class SignUpBody extends StatelessWidget {
                 Expanded(
                   child: PasswordFieldSignUp(),
                 ),
-                SizedBox(width: 16,),
+                const SizedBox(width: 16),
                 Expanded(
-                    child: ConfirmPasswordField(),
+                  child: ConfirmPasswordField(),
                 )
               ],
             ),
@@ -51,7 +53,8 @@ class SignUpBody extends StatelessWidget {
             PhoneFieldSignUp(),
             _buildSpacer(48),
             ButtonSignUp(),
-
+            _buildSpacer(16),
+            AlreadyHaveAccountSignUp(),
           ],
         ),
       ),
