@@ -10,22 +10,22 @@ class DontHaveAnAccountRowWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-    RichText(
-    text: TextSpan(
-    text: context.dontHaveAnAccount,
-      style:  Theme.of(context).textTheme.titleMedium,
-      children: [
-        TextSpan(
-          text: context.signUp,
-          style: TextStyle(
-            decoration: TextDecoration.underline,
-            color: AppColors.blue, // Make it look like a link
-            fontWeight: FontWeight.bold,
+        RichText(
+          text: TextSpan(
+            text: context.dontHaveAnAccount,
+            style: Theme.of(context).textTheme.titleMedium,
+            children: [
+              TextSpan(
+                text: context.signUp,
+                style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  color: AppColors.blue,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
           ),
         ),
-      ],
-    ),
-    ),
       ],
     );
   }
