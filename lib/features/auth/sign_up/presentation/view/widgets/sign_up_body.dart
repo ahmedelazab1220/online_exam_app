@@ -45,6 +45,13 @@ class SignUpBody extends StatelessWidget {
                 )
               ],
             ),
+            _buildSpacer(),
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: context.enterPhoneNumber,
+                labelText: context.phoneNumber,
+              ),
+            )
           ],
         ),
       ),
