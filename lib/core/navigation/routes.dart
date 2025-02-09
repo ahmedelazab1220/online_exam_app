@@ -9,6 +9,5 @@ class AppRoutes {
 
   static Map<String, Widget Function(dynamic)> routes = {
     loginRoute: (context) => LoginView(),
-
   };
 }
