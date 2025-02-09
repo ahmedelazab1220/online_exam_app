@@ -5,10 +5,12 @@ class RememberMeAndForgetPassword extends StatefulWidget {
   const RememberMeAndForgetPassword({super.key});
 
   @override
-  State<RememberMeAndForgetPassword> createState() => _RememberMeAndForgetPasswordState();
+  State<RememberMeAndForgetPassword> createState() =>
+      _RememberMeAndForgetPasswordState();
 }
 
-class _RememberMeAndForgetPasswordState extends State<RememberMeAndForgetPassword> {
+class _RememberMeAndForgetPasswordState
+    extends State<RememberMeAndForgetPassword> {
   bool isRememberMe = false;
 
   @override
@@ -16,25 +18,22 @@ class _RememberMeAndForgetPasswordState extends State<RememberMeAndForgetPasswor
     return Row(
       children: [
         Checkbox(
-            value: isRememberMe, onChanged:  (value) {
-              isRememberMe=value!;
-              setState(() {});
-            },
-        side: Theme.of(context).checkboxTheme.side,),
-        Text(context.rememberMe,
-        style: Theme.of(context).textTheme.titleSmall,),
+          value: isRememberMe,
+          onChanged: (value) {
+            isRememberMe = value!;
+            setState(() {});
+          },
+          side: Theme.of(context).checkboxTheme.side,
+        ),
+        Text(
+          context.rememberMe,
+          style: Theme.of(context).textTheme.titleSmall,
+        ),
         Spacer(),
-        TextButton(onPressed: (){},
-         style: ButtonStyle(
-           textStyle: WidgetStateProperty.all(
-              TextStyle(
-               decoration: TextDecoration.underline,
-               fontWeight: FontWeight.w400,
-               fontSize: 12,
-             ),
-           ),
-         ), child: Text(context.forgotPassword),
-        )
+        TextButton(
+          onPressed: () {},
+          child: Text(context.forgotPassword),
+        ),
       ],
     );
   }
