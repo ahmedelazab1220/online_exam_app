@@ -13,7 +13,8 @@ class LoginBody extends StatelessWidget {
     if (value == null || value.isEmpty) {
       return "Email must not be empty";
     }
-    final emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+    final emailRegex =
+        RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
     if (!emailRegex.hasMatch(value)) {
       return "This Email is not valid";
     }
@@ -43,19 +44,18 @@ class LoginBody extends StatelessWidget {
                 keyboardType: TextInputType.emailAddress,
                 controller: emailController,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
                   labelText: context.email,
                   hintText: context.enterYourEmail,
                 ),
                 validator: validateEmail,
               ),
               SizedBox(
-                height: 20,),
+                height: 20,
+              ),
               TextFormField(
                 controller: passwordController,
                 keyboardType: TextInputType.visiblePassword,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
                   labelText: context.password,
                   hintText: context.enterYourPassword,
                 ),
@@ -63,21 +63,23 @@ class LoginBody extends StatelessWidget {
               ),
               RememberMeAndForgetPassword(),
               SizedBox(
-                height: 50,),
+                height: 50,
+              ),
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(onPressed: (){
-                  if( formKey.currentState!.validate() == true )
-                  {
-                   log("login success");
-                  }
-                  print("$passwordController");
-                }, child:
-                Text(context.login),
+                child: ElevatedButton(
+                  onPressed: () {
+                    if (formKey.currentState!.validate() == true) {
+                      log("login success");
+                    }
+                    print("$passwordController");
+                  },
+                  child: Text(context.login),
                 ),
               ),
               SizedBox(
-                height: 4,),
+                height: 4,
+              ),
               DontHaveAnAccountRowWidget()
             ],
           ),
