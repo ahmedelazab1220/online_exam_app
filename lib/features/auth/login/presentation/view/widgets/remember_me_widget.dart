@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_exam_app/core/assets/app_colors.dart';
 import 'package:online_exam_app/core/utils/extenstion/translations.dart';
 
 class RememberMeAndForgetPassword extends StatefulWidget {
@@ -25,15 +26,11 @@ class _RememberMeAndForgetPasswordState extends State<RememberMeAndForgetPasswor
         style: Theme.of(context).textTheme.titleSmall,),
         Spacer(),
         TextButton(onPressed: (){},
-         style: ButtonStyle(
-           textStyle: WidgetStateProperty.all(
-              TextStyle(
-               decoration: TextDecoration.underline,
-               fontWeight: FontWeight.w400,
-               fontSize: 12,
-             ),
-           ),
-         ), child: Text(context.forgotPassword),
+         style: Theme.of(context).textButtonTheme.style?.copyWith(foregroundColor:WidgetStatePropertyAll(AppColors.black),textStyle:WidgetStatePropertyAll(TextStyle(
+           decoration: TextDecoration.underline,
+           fontWeight: FontWeight.w400,
+           fontSize: 12,))  )
+          , child: Text(context.forgotPassword),
         )
       ],
     );

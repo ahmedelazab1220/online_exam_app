@@ -7,10 +7,7 @@ class DontHaveAnAccountRowWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-    RichText(
+    return RichText(
     text: TextSpan(
     text: context.dontHaveAnAccount,
       style:  Theme.of(context).textTheme.titleMedium,
@@ -25,8 +22,6 @@ class DontHaveAnAccountRowWidget extends StatelessWidget {
         ),
       ],
     ),
-    ),
-      ],
     );
   }
 }
