@@ -16,13 +16,12 @@ class AppTheme {
     ),
     textTheme: const TextTheme(
       titleLarge: TextStyle(
-          color: AppColors.black,
-          fontFamily: AppFontsFamily.inter,
+        color: AppColors.black,
+        fontFamily: AppFontsFamily.inter,
       ),
       titleMedium: TextStyle(
         color: AppColors.black,
-        fontSize: 16,
-        fontFamily: AppFontsFamily.intel,
+        fontFamily: AppFontsFamily.inter,
       ),
       titleSmall: TextStyle(color: AppColors.black),
       labelLarge: TextStyle(color: AppColors.black),
