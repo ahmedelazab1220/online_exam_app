@@ -4,17 +4,16 @@ import 'package:online_exam_app/core/theme/app_theme.dart';
 import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
 
-void  main()async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await   EasyLocalization.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
   runApp(EasyLocalization(
-
     supportedLocales: const [
-      Locale('ar'), // Arabic
-      Locale('en'), // English
+      Locale('ar'),
+      Locale('en'),
     ],
-    path: 'assets/translations', // Path to translation files
-    fallbackLocale: const Locale('en'), // Fallback language
+    path: 'assets/translations',
+    fallbackLocale: const Locale('en'),
     startLocale: const Locale('en'),
     child: const OnlineExamApp(),
   ));
