@@ -52,7 +52,7 @@ class AppTheme {
           ),
         ),
         padding: WidgetStateProperty.all(
-          const EdgeInsets.all(8),
+          const EdgeInsets.all(14),
         ),
       ),
     ),
