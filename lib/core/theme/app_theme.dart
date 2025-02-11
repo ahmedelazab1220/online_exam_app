@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../assets/app_colors.dart';
+import '../utils/app_fonts_family.dart';
 
 class AppTheme {
   static ThemeData appTheme = ThemeData(
@@ -14,7 +15,12 @@ class AppTheme {
       backgroundColor: AppColors.white,
     ),
     textTheme: const TextTheme(
-      titleLarge: TextStyle(color: AppColors.black),
+      titleLarge: TextStyle(
+          color: AppColors.black,
+           fontSize: 20,
+          fontWeight: FontWeight.w600,
+          fontFamily: AppFontsFamily.intel,
+      ),
       titleMedium: TextStyle(color: AppColors.black),
       titleSmall: TextStyle(color: AppColors.black),
       labelLarge: TextStyle(color: AppColors.black),
@@ -41,6 +47,7 @@ class AppTheme {
           const TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: 16,
+            fontFamily: AppFontsFamily.roboto,
             color: AppColors.white,
           ),
         ),
@@ -54,12 +61,14 @@ class AppTheme {
       contentPadding: const EdgeInsets.all(16),
       iconColor: AppColors.blue,
       hintStyle: TextStyle(
+        fontFamily: AppFontsFamily.roboto,
         color: AppColors.black[AppColors.colorCode30],
         fontSize: 14,
       ),
       prefixIconColor: AppColors.black,
       suffixIconColor: AppColors.black,
       labelStyle: TextStyle(
+        fontFamily: AppFontsFamily.roboto,
         fontSize: 12,
         color: AppColors.black[AppColors.colorCode40],
       ),

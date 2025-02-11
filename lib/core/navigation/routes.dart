@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_exam_app/features/auth/sign_up/presentation/view/sign_up_view.dart';
 
 import '../../features/forget_password/presentation/view/forget_password_view.dart';
 
