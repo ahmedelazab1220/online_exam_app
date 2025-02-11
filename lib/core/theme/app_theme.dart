@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../assets/app_colors.dart';
-import '../utils/app_fonts_family.dart';
+import '../assets/app_fonts_family.dart';
 
 class AppTheme {
   static ThemeData appTheme = ThemeData(
@@ -17,9 +17,7 @@ class AppTheme {
     textTheme: const TextTheme(
       titleLarge: TextStyle(
           color: AppColors.black,
-           fontSize: 20,
-          fontWeight: FontWeight.w600,
-          fontFamily: AppFontsFamily.intel,
+          fontFamily: AppFontsFamily.inter,
       ),
       titleMedium: TextStyle(color: AppColors.black),
       titleSmall: TextStyle(color: AppColors.black),
