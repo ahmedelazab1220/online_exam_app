@@ -35,7 +35,7 @@ class OnlineExamApp extends StatelessWidget {
             navigatorKey: NavigationManager.navigationKey,
             routes: AppRoutes.routes,
             theme: AppTheme.appTheme,
-            initialRoute: AppRoutes.forgetPasswordRoute,
+            initialRoute: AppRoutes.loginRoute,
           ),
         );
       },
