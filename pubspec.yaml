@@ -80,12 +80,12 @@ flutter:
   fonts:
      - family: Inter
        fonts:
-         - asset: fonts/inter/Inter_Regular.ttf
+         - asset: assets/fonts/inter/Inter_Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
      - family: Roboto
        fonts:
-         - asset: fonts/roboto/Roboto-Regular.ttf
+         - asset: assets/fonts/roboto/Roboto-Regular.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
