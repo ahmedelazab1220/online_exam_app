@@ -9,19 +9,20 @@ class AlreadyHaveAccountSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   RichText(
+    return RichText(
       text: TextSpan(
         text: context.alreadyHaveAnAccount,
-        style:  Theme.of(context).textTheme.titleMedium,
+        style: Theme.of(context).textTheme.titleMedium!.copyWith(
+              fontSize: 16,
+            ),
         children: [
           TextSpan(
             text: context.login,
             style: TextStyle(
               decoration: TextDecoration.underline,
-              color: AppColors.blue, // Make it look like a link
+              color: AppColors.blue,
               fontWeight: FontWeight.bold,
             ),
-            // Add a tap event
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 debugPrint("Navigate to Login Screen");
