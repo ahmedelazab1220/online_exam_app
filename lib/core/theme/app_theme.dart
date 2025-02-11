@@ -19,7 +19,11 @@ class AppTheme {
           color: AppColors.black,
           fontFamily: AppFontsFamily.inter,
       ),
-      titleMedium: TextStyle(color: AppColors.black),
+      titleMedium: TextStyle(
+        color: AppColors.black,
+        fontSize: 16,
+        fontFamily: AppFontsFamily.intel,
+      ),
       titleSmall: TextStyle(color: AppColors.black),
       labelLarge: TextStyle(color: AppColors.black),
       labelMedium: TextStyle(color: AppColors.black),
