@@ -1,16 +1,6 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:online_exam_app/core/assets/app_colors.dart';
 import 'package:online_exam_app/core/utils/extenstion/translations.dart';
-import 'package:online_exam_app/features/auth/sign_up/presentation/view/widgets/password_field_sign_up.dart';
-import 'package:online_exam_app/features/auth/sign_up/presentation/view/widgets/phone_field_sign_up.dart';
-import 'package:online_exam_app/features/auth/sign_up/presentation/view/widgets/user_name_field_sign_up.dart';
 import 'already_have_account_sign_up.dart';
-import 'button_sign_up.dart';
-import 'confirm_password_field.dart';
-import 'email_field_sign_up.dart';
-import 'first_name_field_sign_up.dart';
-import 'last_name_field_sign_up.dart';
 
 class SignUpBody extends StatelessWidget {
   const SignUpBody({super.key});
@@ -22,48 +12,97 @@ class SignUpBody extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Column(
           children: [
-            UserNameFieldSignUp(),
-            _buildSpacer(),
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: context.enterYourUserName,
+                labelText: context.userName,
+              ),
+            ),
+            SizedBox(
+              height: 24,
+            ),
             Row(
               children: [
                 Expanded(
-                  child: FirstNameFieldSignUp(),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: context.enterFirstName,
+                      labelText: context.firstName,
+                    ),
+                  ),
                 ),
                 const SizedBox(width: 16),
                 Expanded(
-                  child: LastNameFieldSignUp(),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: context.enterLastName,
+                      labelText: context.lastName,
+                    ),
+                  ),
                 ),
               ],
             ),
-            _buildSpacer(),
-            EmailFieldSignUp(),
-            _buildSpacer(),
+            SizedBox(
+              height: 24,
+            ),
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: context.enterYourEmail,
+                labelText: context.email,
+              ),
+            ),
+            SizedBox(
+              height: 24,
+            ),
             Row(
               children: [
                 Expanded(
-                  child: PasswordFieldSignUp(),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: context.enterYourPassword,
+                      labelText: context.password,
+                    ),
+                  ),
                 ),
                 const SizedBox(width: 16),
                 Expanded(
-                  child: ConfirmPasswordField(),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      hintText: context.confirmPassword,
+                      labelText: context.confirmPassword,
+                    ),
+                  ),
                 )
               ],
             ),
-            _buildSpacer(),
-            PhoneFieldSignUp(),
-            _buildSpacer(48),
-            ButtonSignUp(),
-            _buildSpacer(16),
+            SizedBox(
+              height: 24,
+            ),
+            TextFormField(
+              decoration: InputDecoration(
+                hintText: context.enterPhoneNumber,
+                labelText: context.phoneNumber,
+              ),
+            ),
+            SizedBox(
+              height: 48,
+            ),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                  onPressed: () {},
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                    child: Text(context.signUp),
+                  )),
+            ),
+            SizedBox(
+              height: 16,
+            ),
             AlreadyHaveAccountSignUp(),
           ],
         ),
       ),
-    );
-  }
-
-  Widget _buildSpacer([double? height]) {
-    return SizedBox(
-      height: height ?? 24,
     );
   }
 }
