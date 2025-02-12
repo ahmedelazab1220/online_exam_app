@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_exam_app/core/utils/extenstion/translations.dart';
 import '../../../../../core/navigation/navigation_manager.dart';
 import '../../../../../core/navigation/routes.dart';
 
@@ -19,10 +20,9 @@ class ForgetPasswordForm extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Forget password',
+                    context.forgotPassword,
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           fontSize: 18,
-                          fontWeight: FontWeight.w500,
                         ),
                   ),
                 ],
@@ -33,7 +33,7 @@ class ForgetPasswordForm extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    'Please enter your email associated to your account',
+                    context.pleaseEnterYourEmail,
                     style: Theme.of(context).textTheme.titleSmall!.copyWith(
                           fontWeight: FontWeight.w400,
                         ),
@@ -48,8 +48,8 @@ class ForgetPasswordForm extends StatelessWidget {
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                  labelText: 'Email',
-                  hintText: 'Enter your email',
+                  labelText: context.email,
+                  hintText: context.enterYourEmail,
                 ),
                 onTapOutside: (_) =>
                     FocusManager.instance.primaryFocus?.unfocus(),
@@ -59,7 +59,7 @@ class ForgetPasswordForm extends StatelessWidget {
               onPressed: () {
                 NavigationManager.push(AppRoutes.otpVerifyRoute);
               },
-              child: Text('Continue'),
+              child: Text(context.continueText),
             ),
           ],
         ),

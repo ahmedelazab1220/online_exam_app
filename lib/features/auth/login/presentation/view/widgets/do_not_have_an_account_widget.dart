@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:online_exam_app/core/navigation/navigation_manager.dart';
+import 'package:online_exam_app/core/navigation/routes.dart';
 import 'package:online_exam_app/core/utils/extenstion/translations.dart';
-import '../../../../../../core/navigation/navigation_manager.dart';
-import '../../../../../../core/navigation/routes.dart';
 
-class AlreadyHaveAccountSignUp extends StatelessWidget {
-  const AlreadyHaveAccountSignUp({super.key});
+class DonotHaveAnAccountWidget extends StatelessWidget {
+  const DonotHaveAnAccountWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class AlreadyHaveAccountSignUp extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          context.alreadyHaveAnAccount,
+          context.donotHaveAnAccount,
           style: Theme.of(context).textTheme.bodyLarge,
         ),
         TextButton(
@@ -22,10 +22,10 @@ class AlreadyHaveAccountSignUp extends StatelessWidget {
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           ),
           onPressed: () {
-            NavigationManager.replace(AppRoutes.loginRoute);
+            NavigationManager.replace(AppRoutes.signUpRoute);
           },
           child: Text(
-            context.login,
+            context.signUp,
           ),
         ),
       ],

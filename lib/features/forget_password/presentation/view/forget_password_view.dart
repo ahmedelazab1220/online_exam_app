@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:online_exam_app/core/utils/extenstion/translations.dart';
+import '../../../../core/shared_widgets/custom_app_bar.dart';
 import 'widgets/forget_password_form.dart';
 
 class ForgetPasswordView extends StatelessWidget {
@@ -8,14 +9,10 @@ class ForgetPasswordView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Password',
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.w500,
-                fontSize: 20.0,
-              ),
-        ),
+      appBar: buildAppBar(
+        context,
+        title: context.password,
+        isExistBackButton: true,
       ),
       body: ForgetPasswordForm(),
     );

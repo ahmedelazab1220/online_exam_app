@@ -112,12 +112,13 @@ class AppTheme {
     appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.white,
       foregroundColor: AppColors.black,
-      surfaceTintColor: Colors.transparent,
+      surfaceTintColor: Colors.white,
       elevation: 0,
       titleTextStyle: TextStyle(
         fontSize: 20,
         fontWeight: FontWeight.w500,
         color: AppColors.black,
+        fontFamily: AppFontsFamily.inter,
       ),
     ),
     textButtonTheme: TextButtonThemeData(
@@ -148,7 +149,7 @@ class AppTheme {
     ),
     checkboxTheme: const CheckboxThemeData(
       checkColor: WidgetStatePropertyAll(AppColors.white),
-      side: BorderSide(color: AppColors.blue),
+      side: BorderSide(color: AppColors.gray, width: 2),
       overlayColor: WidgetStatePropertyAll(AppColors.blue),
     ),
   );
