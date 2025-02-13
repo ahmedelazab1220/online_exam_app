@@ -33,12 +33,13 @@ class _RememberMeAndForgetPasswordWidgetState
         Spacer(),
         TextButton(
           onPressed: () {
+            // just for test when add viewModel i'll remove it.
             Navigator.pushNamed(context, AppRoutes.forgetPasswordRoute);
           },
-          style: Theme.of(context).textButtonTheme.style?.copyWith(
-                foregroundColor: WidgetStatePropertyAll(AppColors.black),
-                padding: WidgetStatePropertyAll(EdgeInsets.zero),
-              ),
+          style: TextButton.styleFrom(
+            foregroundColor: AppColors.black,
+            padding: EdgeInsets.zero,
+          ),
           child: Text(context.forgotPassword),
         )
       ],

@@ -24,6 +24,7 @@ class AlreadyHaveAccountSignUp extends StatelessWidget {
             ),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
+                // just for test when add viewModel i'll remove it.
                 Navigator.pushReplacementNamed(context, AppRoutes.loginRoute);
               },
           ),

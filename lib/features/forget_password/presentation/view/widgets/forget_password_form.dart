@@ -56,6 +56,7 @@ class ForgetPasswordForm extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
+                // just for test when add viewModel i'll remove it.
                 Navigator.pushNamed(context, AppRoutes.otpVerifyRoute);
               },
               child: Text(context.continueText),

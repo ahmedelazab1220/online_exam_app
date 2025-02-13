@@ -39,12 +39,15 @@ class LoginForm extends StatelessWidget {
                 ),
               ),
               RememberMeAndForgetPasswordWidget(),
-              Padding(
-                padding: const EdgeInsets.only(top: 48.0, bottom: 16.0),
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text(context.login),
-                ),
+              SizedBox(
+                height: 48.0,
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text(context.login),
+              ),
+              SizedBox(
+                height: 16.0,
               ),
               DonotHaveAnAccountWidget(),
             ],
