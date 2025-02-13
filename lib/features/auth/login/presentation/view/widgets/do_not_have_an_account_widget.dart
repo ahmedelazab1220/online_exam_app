@@ -4,19 +4,19 @@ import 'package:online_exam_app/core/utils/extenstion/translations.dart';
 import '../../../../../../core/assets/app_colors.dart';
 import '../../../../../../core/navigation/routes.dart';
 
-class AlreadyHaveAccountSignUp extends StatelessWidget {
-  const AlreadyHaveAccountSignUp({super.key});
+class DonotHaveAnAccountWidget extends StatelessWidget {
+  const DonotHaveAnAccountWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
-        text: context.alreadyHaveAnAccount,
+        text: context.donotHaveAnAccount,
         style: Theme.of(context).textTheme.bodyLarge,
         children: [
           TextSpan(
-            text: context.login,
+            text: context.signUp,
             style: TextStyle(
               decoration: TextDecoration.underline,
               color: AppColors.blue,
@@ -24,7 +24,7 @@ class AlreadyHaveAccountSignUp extends StatelessWidget {
             ),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                Navigator.pushReplacementNamed(context, AppRoutes.loginRoute);
+                Navigator.pushReplacementNamed(context, AppRoutes.signUpRoute);
               },
           ),
         ],
