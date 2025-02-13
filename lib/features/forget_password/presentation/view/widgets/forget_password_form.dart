@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:online_exam_app/core/utils/extenstion/translations.dart';
-import '../../../../../core/navigation/navigation_manager.dart';
 import '../../../../../core/navigation/routes.dart';
 
 class ForgetPasswordForm extends StatelessWidget {
@@ -57,7 +56,7 @@ class ForgetPasswordForm extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                NavigationManager.push(AppRoutes.otpVerifyRoute);
+                Navigator.pushNamed(context, AppRoutes.otpVerifyRoute);
               },
               child: Text(context.continueText),
             ),

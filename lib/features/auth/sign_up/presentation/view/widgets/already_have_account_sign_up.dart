@@ -1,6 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:online_exam_app/core/utils/extenstion/translations.dart';
-import '../../../../../../core/navigation/navigation_manager.dart';
+import '../../../../../../core/assets/app_colors.dart';
 import '../../../../../../core/navigation/routes.dart';
 
 class AlreadyHaveAccountSignUp extends StatelessWidget {
@@ -8,27 +9,26 @@ class AlreadyHaveAccountSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          context.alreadyHaveAnAccount,
-          style: Theme.of(context).textTheme.bodyLarge,
-        ),
-        TextButton(
-          style: TextButton.styleFrom(
-            padding: EdgeInsets.only(left: 4),
-            minimumSize: Size(0, 0),
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+    return RichText(
+      textAlign: TextAlign.center,
+      text: TextSpan(
+        text: context.alreadyHaveAnAccount,
+        style: Theme.of(context).textTheme.bodyLarge,
+        children: [
+          TextSpan(
+            text: context.login,
+            style: TextStyle(
+              decoration: TextDecoration.underline,
+              color: AppColors.blue,
+              fontWeight: FontWeight.bold,
+            ),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                Navigator.pushReplacementNamed(context, AppRoutes.loginRoute);
+              },
           ),
-          onPressed: () {
-            NavigationManager.replace(AppRoutes.loginRoute);
-          },
-          child: Text(
-            context.login,
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

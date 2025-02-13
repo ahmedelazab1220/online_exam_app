@@ -9,8 +9,7 @@ class ForgetPasswordView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(
-        context,
+      appBar: CustomAppBar(
         title: context.password,
         isExistBackButton: true,
       ),

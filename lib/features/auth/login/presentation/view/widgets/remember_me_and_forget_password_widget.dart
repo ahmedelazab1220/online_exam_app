@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:online_exam_app/core/utils/extenstion/translations.dart';
 import '../../../../../../core/assets/app_colors.dart';
-import '../../../../../../core/navigation/navigation_manager.dart';
 import '../../../../../../core/navigation/routes.dart';
 
 class RememberMeAndForgetPasswordWidget extends StatefulWidget {
@@ -26,7 +25,6 @@ class _RememberMeAndForgetPasswordWidgetState
             isRememberMe = value!;
             setState(() {});
           },
-          side: Theme.of(context).checkboxTheme.side,
         ),
         Text(
           context.rememberMe,
@@ -35,7 +33,7 @@ class _RememberMeAndForgetPasswordWidgetState
         Spacer(),
         TextButton(
           onPressed: () {
-            NavigationManager.push(AppRoutes.forgetPasswordRoute);
+            Navigator.pushNamed(context, AppRoutes.forgetPasswordRoute);
           },
           style: Theme.of(context).textButtonTheme.style?.copyWith(
                 foregroundColor: WidgetStatePropertyAll(AppColors.black),
