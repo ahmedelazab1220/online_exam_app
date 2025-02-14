@@ -25,18 +25,18 @@ class LoginForm extends StatelessWidget {
                 onTapOutside: (_) =>
                     FocusManager.instance.primaryFocus?.unfocus(),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 20.0),
-                child: TextFormField(
-                  keyboardType: TextInputType.visiblePassword,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: context.password,
-                    hintText: context.enterYourPassword,
-                  ),
-                  onTapOutside: (_) =>
-                      FocusManager.instance.primaryFocus?.unfocus(),
+              SizedBox(
+                height: 20.0,
+              ),
+              TextFormField(
+                keyboardType: TextInputType.visiblePassword,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: context.password,
+                  hintText: context.enterYourPassword,
                 ),
+                onTapOutside: (_) =>
+                    FocusManager.instance.primaryFocus?.unfocus(),
               ),
               RememberMeAndForgetPasswordWidget(),
               SizedBox(

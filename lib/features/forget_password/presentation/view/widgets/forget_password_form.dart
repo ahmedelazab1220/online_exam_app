@@ -13,19 +13,19 @@ class ForgetPasswordForm extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(bottom: 16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    context.forgotPassword,
-                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                          fontSize: 18,
-                        ),
-                  ),
-                ],
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  context.forgotPassword,
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                        fontSize: 18,
+                      ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 16.0,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -41,18 +41,21 @@ class ForgetPasswordForm extends StatelessWidget {
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 32.0, bottom: 24.0),
-              child: TextFormField(
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                  labelText: context.email,
-                  hintText: context.enterYourEmail,
-                ),
-                onTapOutside: (_) =>
-                    FocusManager.instance.primaryFocus?.unfocus(),
+            SizedBox(
+              height: 32.0,
+            ),
+            TextFormField(
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
+                labelText: context.email,
+                hintText: context.enterYourEmail,
               ),
+              onTapOutside: (_) =>
+                  FocusManager.instance.primaryFocus?.unfocus(),
+            ),
+            SizedBox(
+              height: 24.0,
             ),
             ElevatedButton(
               onPressed: () {
