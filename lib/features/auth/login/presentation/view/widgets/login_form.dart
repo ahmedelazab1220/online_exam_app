@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:online_exam_app/core/utils/extenstion/translations.dart';
-import 'package:online_exam_app/features/auth/login/presentation/view/widgets/dont_have_an_account_row_widget.dart';
-import 'package:online_exam_app/features/auth/login/presentation/view/widgets/remember_me_widget.dart';
+import 'do_not_have_an_account_widget.dart';
+import 'remember_me_and_forget_password_widget.dart';
 
-class LoginBody extends StatelessWidget {
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
-  final formKey = GlobalKey<FormState>();
-  LoginBody({super.key});
+class LoginForm extends StatelessWidget {
+  const LoginForm({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,42 +12,44 @@ class LoginBody extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Form(
-          key: formKey,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               TextFormField(
                 keyboardType: TextInputType.emailAddress,
-                controller: emailController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: context.email,
                   hintText: context.enterYourEmail,
                 ),
+                onTapOutside: (_) =>
+                    FocusManager.instance.primaryFocus?.unfocus(),
               ),
               SizedBox(
-                height: 20,),
+                height: 20.0,
+              ),
               TextFormField(
-                controller: passwordController,
                 keyboardType: TextInputType.visiblePassword,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: context.password,
                   hintText: context.enterYourPassword,
                 ),
+                onTapOutside: (_) =>
+                    FocusManager.instance.primaryFocus?.unfocus(),
               ),
-              RememberMeAndForgetPassword(),
+              RememberMeAndForgetPasswordWidget(),
               SizedBox(
-                height: 50,),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: (){},
-                  child: Text(context.login),
-                ),
+                height: 48.0,
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text(context.login),
               ),
               SizedBox(
-                height: 4,),
-              DontHaveAnAccountRowWidget()
+                height: 16.0,
+              ),
+              DonotHaveAnAccountWidget(),
             ],
           ),
         ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:online_exam_app/core/utils/extenstion/translations.dart';
 import 'widgets/forget_password_form.dart';
 
 class ForgetPasswordView extends StatelessWidget {
@@ -9,12 +9,13 @@ class ForgetPasswordView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Password',
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.w500,
-                fontSize: 20.0,
-              ),
+        title: Text(context.password),
+        leading: InkWell(
+          onTap: () {
+            // just for test when add viewModel i'll remove it.
+            Navigator.pop(context);
+          },
+          child: const Icon(Icons.arrow_back_ios_new),
         ),
       ),
       body: ForgetPasswordForm(),
