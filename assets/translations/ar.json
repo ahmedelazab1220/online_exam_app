@@ -10,7 +10,7 @@
   "PasswordNotMatched": "كلمة المرور غير متطابقة",
   "RememberMe": "تذكرني",
   "ForgotPassword": "نسيت كلمة المرور",
-  "DontHaveAnAccount": "ليس لديك حساب؟",
+  "DonotHaveAnAccount": "ليس لديك حساب؟",
   "AlreadyHaveAnAccount": "هل لديك حساب بالفعل؟",
   "UserName": "اسم المستخدم",
   "EnterYourUserName": "أدخل اسم المستخدم",

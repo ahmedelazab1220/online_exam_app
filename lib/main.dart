@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:online_exam_app/core/theme/app_theme.dart';
-import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
 
 void main() async {
@@ -32,7 +31,6 @@ class OnlineExamApp extends StatelessWidget {
             supportedLocales: context.supportedLocales,
             locale: context.locale,
             debugShowCheckedModeBanner: false,
-            navigatorKey: NavigationManager.navigationKey,
             routes: AppRoutes.routes,
             theme: AppTheme.appTheme,
             initialRoute: AppRoutes.loginRoute,

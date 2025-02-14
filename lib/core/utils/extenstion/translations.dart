@@ -13,7 +13,7 @@ extension Translations on BuildContext {
   String get passwordNotMatched => tr('PasswordNotMatched');
   String get rememberMe => tr('RememberMe');
   String get forgotPassword => tr('ForgotPassword');
-  String get dontHaveAnAccount => tr('DontHaveAnAccount');
+  String get donotHaveAnAccount => tr('DonotHaveAnAccount');
   String get alreadyHaveAnAccount => tr('AlreadyHaveAnAccount');
   String get userName => tr('UserName');
   String get enterYourUserName => tr('EnterYourUserName');
