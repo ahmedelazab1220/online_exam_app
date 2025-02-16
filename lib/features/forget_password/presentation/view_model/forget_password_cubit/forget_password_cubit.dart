@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 import 'package:online_exam_app/core/utils/validation/validator.dart';
 
 import '../../../../../domain/core/api_result.dart';
@@ -8,6 +9,7 @@ import '../../../../../domain/use_cases/forget_password_use_case.dart';
 
 part 'forget_password_state.dart';
 
+@injectable
 class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
   final ForgetPasswordUseCase forgetPasswordUseCase;
   final Validator validator = Validator();
