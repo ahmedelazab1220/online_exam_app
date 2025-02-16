@@ -1,9 +1,12 @@
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 import 'api_constants.dart';
 
-abstract class DioProvider {
+@module
+abstract class DioModule {
+  @lazySingleton
   Dio provideDio() {
     final dio = Dio();
     dio.options = BaseOptions(
@@ -15,6 +18,7 @@ abstract class DioProvider {
     return dio;
   }
 
+  @lazySingleton
   PrettyDioLogger providerInterceptor() {
     return PrettyDioLogger(
       error: true,

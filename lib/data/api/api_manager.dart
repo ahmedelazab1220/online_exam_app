@@ -1,9 +1,11 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:injectable/injectable.dart';
 import '../../core/utils/extenstion/translations.dart';
 import '../../domain/core/api_result.dart';
 import 'app_exception.dart';
 
+@singleton
 class ApiManager {
   Future<Result<T>> execute<T>(Future<T> Function() apiCall) async {
     try {
