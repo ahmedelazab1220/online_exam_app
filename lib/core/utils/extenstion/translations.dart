@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-extension Translations on BuildContext {
+extension BuildContextTranslations on BuildContext {
   String get login => tr('Login');
   String get signUp => tr('SignUp');
   String get email => tr('Email');
@@ -63,4 +63,28 @@ extension Translations on BuildContext {
   String get profile => tr('Profile');
   String get result => tr('Result');
   String get explore => tr('Explore');
+  String get error => tr('Error');
+  String get ok => tr('Ok');
+  String get emailCanNotBeEmpty => tr("EmailCan'tBeEmpty");
+  String get enterAValidEmail => tr('EnterAValidEmail');
+  String get loading => tr('Loading');
+  String get retry => tr('Retry');
+  String get otpSentToYourEmail => tr('OtpSentToYourEmail');
+}
+
+extension StringTranslations on String {
+  static String get connectionTimeout => "Connection_timeout".tr();
+  static String get sendTimeout => "Send_timeout".tr();
+  static String get receiveTimeout => "Receive_timeout".tr();
+  static String get timeoutOccurred => "Timeout_occurred".tr();
+  static String get invalidCertificate => "Invalid_certificate".tr();
+  static String get unexpectedServerError => "Unexpected_server_error".tr();
+  static String get requestCancelled => "Request_cancelled".tr();
+  static String get connectionFailed => "Connection_failed".tr();
+  static String get unexpectedError => "Unexpected_error".tr();
+  static String get badRequest => "Bad_request".tr();
+  static String get unauthorized => "Unauthorized".tr();
+  static String get forbidden => "Forbidden".tr();
+  static String get notFound => "Not_found".tr();
+  static String get internalServerError => "Internal_server_error".tr();
 }
