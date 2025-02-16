@@ -68,5 +68,19 @@
   "Retry": "Retry",
   "otpSentToYourEmail": "OTP sent to your email",
   "invalidCredentials": "Email or password is not correct",
-  "emailNotValid": "Email not valid"
+  "emailNotValid": "Email not valid",
+  "connection_timeout": "Connection timeout. Check your internet.",
+  "send_timeout": "Send timeout. Please try again.",
+  "receive_timeout": "Response timeout. Please try again.",
+  "timeout_occurred": "Timeout occurred.",
+  "invalid_certificate": "Invalid security certificate. Please contact support.",
+  "unexpected_server_error": "Unexpected server error.",
+  "request_cancelled": "Request cancelled by the client.",
+  "connection_failed": "Connection failed. Check your network.",
+  "unexpected_error": "Unexpected error occurred.",
+  "bad_request": "Bad request.",
+  "unauthorized": "Unauthorized access.",
+  "forbidden": "Access forbidden.",
+  "not_found": "Resource not found.",
+  "internal_server_error": "Internal server error."
 }
