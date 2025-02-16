@@ -65,14 +65,14 @@ extension BuildContextTranslations on BuildContext {
   String get explore => tr('Explore');
   String get error => tr('Error');
   String get ok => tr('Ok');
-  String get emailCanNotBeEmpty => tr("EmailCan'tBeEmpty");
-  String get enterAValidEmail => tr('EnterAValidEmail');
   String get loading => tr('Loading');
   String get retry => tr('Retry');
   String get otpSentToYourEmail => tr('OtpSentToYourEmail');
 }
 
 extension StringTranslations on String {
+  static String get emailCanNotBeEmpty => tr("EmailCan'tBeEmpty");
+  static String get enterAValidEmail => tr('EnterAValidEmail');
   static String get connectionTimeout => "Connection_timeout".tr();
   static String get sendTimeout => "Send_timeout".tr();
   static String get receiveTimeout => "Receive_timeout".tr();
