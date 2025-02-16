@@ -23,6 +23,7 @@ import '../../data/datasource/local/auth_local_datasource_impl.dart' as _i938;
 import '../../data/datasource/remote/auth_remote_datasource_impl.dart' as _i498;
 import '../../data/repositories/auth_repository_impl.dart' as _i895;
 import '../../domain/repositories/auth_repository.dart' as _i1073;
+import '../../domain/use_cases/forget_password_use_case.dart' as _i755;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -52,6 +53,8 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i488.AuthLocalDatasource>(),
           gh<_i912.AuthRemoteDatasource>(),
         ));
+    gh.factory<_i755.ForgetPasswordUseCase>(() =>
+        _i755.ForgetPasswordUseCase(repository: gh<_i1073.AuthRepository>()));
     return this;
   }
 }
