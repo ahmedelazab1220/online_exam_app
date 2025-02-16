@@ -59,5 +59,14 @@
   "YourScore": "Your score",
   "Profile": "Profile",
   "Result": "Result",
-  "Explore": "Explore"
+  "Explore": "Explore",
+  "Error": "Error",
+  "Ok": "Ok",
+  "emailCan'tBeEmpty": "Email can't be empty.",
+  "enterAValidEmail": "Please enter a valid email address.",
+  "loading": "Loading...",
+  "Retry": "Retry",
+  "otpSentToYourEmail": "OTP sent to your email",
+  "invalidCredentials": "Email or password is not correct",
+  "emailNotValid": "Email not valid"
 }
