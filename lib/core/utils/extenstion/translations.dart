@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-extension Translations on BuildContext {
+extension ContextTranslations on BuildContext {
   String get login => tr('Login');
   String get signUp => tr('SignUp');
   String get email => tr('Email');
@@ -63,4 +63,15 @@ extension Translations on BuildContext {
   String get profile => tr('Profile');
   String get result => tr('Result');
   String get explore => tr('Explore');
+  String get error => tr('Error');
+  String get ok => tr('Ok');
+  String get retry => tr('Retry');
+  String get loading => tr('loading');
+  String get otpSentToYourEmail => tr('otpSentToYourEmail');
+  String get emailNotValid => tr('emailNotValid');
+}
+
+extension StringTranslations on String {
+  String get emailCanNotBeEmpty => tr('emailCanNotBeEmpty');
+  String get enterAValidEmail => tr('enterAValidEmail');
 }

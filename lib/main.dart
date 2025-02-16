@@ -1,10 +1,15 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:online_exam_app/core/di/di.dart';
 import 'package:online_exam_app/core/theme/app_theme.dart';
 import 'core/navigation/routes.dart';
+import 'core/utils/observer/bloc_observer_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = BlocObserverService();
+  configureDependencies();
   await EasyLocalization.ensureInitialized();
   runApp(EasyLocalization(
     supportedLocales: const [
