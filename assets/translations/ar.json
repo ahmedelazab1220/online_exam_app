@@ -68,5 +68,19 @@
   "loading": "جاري التحميل...",
   "otpSentToYourEmail": "تم ارسال الكود الى بريدك الالكتروني",
   "invalidCredentials": "البريد الإلكتروني او كلمة المرور غير صحيحة",
-  "emailNotValid": "البريد الإلكتروني غير صحيح"
+  "emailNotValid": "البريد الإلكتروني غير صحيح",
+  "connection_timeout": "انتهت مهلة الاتصال. تحقق من الإنترنت.",
+  "send_timeout": "انتهت مهلة الإرسال. حاول مرة أخرى.",
+  "receive_timeout": "انتهت مهلة الاستجابة. حاول مرة أخرى.",
+  "timeout_occurred": "حدثت مهلة.",
+  "invalid_certificate": "شهادة أمان غير صالحة. يرجى الاتصال بالدعم.",
+  "unexpected_server_error": "خطأ غير متوقع في الخادم.",
+  "request_cancelled": "تم إلغاء الطلب بواسطة العميل.",
+  "connection_failed": "فشل الاتصال. تحقق من الشبكة.",
+  "unexpected_error": "حدث خطأ غير متوقع.",
+  "bad_request": "طلب غير صالح.",
+  "unauthorized": "وصول غير مصرح به.",
+  "forbidden": "تم رفض الوصول.",
+  "not_found": "المورد غير موجود.",
+  "internal_server_error": "خطأ في الخادم الداخلي."
 }
