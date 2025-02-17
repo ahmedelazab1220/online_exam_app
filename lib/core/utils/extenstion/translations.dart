@@ -68,6 +68,7 @@ extension BuildContextTranslations on BuildContext {
   String get loading => tr('Loading');
   String get retry => tr('Retry');
   String get otpSentToYourEmail => tr('OtpSentToYourEmail');
+  String get emilNotValid => tr('EmailNotValid');
 }
 
 extension StringTranslations on String {
