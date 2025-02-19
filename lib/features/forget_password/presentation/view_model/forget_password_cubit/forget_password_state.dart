@@ -1,35 +1,19 @@
 part of 'forget_password_cubit.dart';
 
-// states
-sealed class ForgetPasswordState {}
+class ForgetPasswordState {
+  final BaseState baseState;
 
-final class ForgetPasswordInitial extends ForgetPasswordState {}
+  ForgetPasswordState({required this.baseState});
 
-final class ForgetPasswordSuccessState extends ForgetPasswordState {}
-
-// to remove the loading dialog
-class HideLoadingState extends ForgetPasswordState {}
-
-final class ForgetPasswordFailureState extends ForgetPasswordState {
-  String message;
-
-  ForgetPasswordFailureState(this.message);
+  ForgetPasswordState copyWith({BaseState? baseState}) {
+    return ForgetPasswordState(
+      baseState: baseState ?? this.baseState,
+    );
+  }
 }
-
-final class ForgetPasswordLoadingState extends ForgetPasswordState {}
-
-final class NavigateToOtpScreenState extends ForgetPasswordState {}
-
-final class NavigateToLoginScreenState extends ForgetPasswordState {}
-
-class InvalidEmailState extends ForgetPasswordState {}
 
 // actions
 sealed class ForgetPasswordAction {}
-
-final class NavigateToOtpScreenAction extends ForgetPasswordAction {}
-
-final class NavigateToLoginScreenAction extends ForgetPasswordAction {}
 
 final class FormDataChangedAction extends ForgetPasswordAction {}
 

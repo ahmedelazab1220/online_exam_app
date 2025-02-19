@@ -73,6 +73,7 @@ extension BuildContextTranslations on BuildContext {
 
 extension StringTranslations on String {
   static String get emailCanNotBeEmpty => tr("EmailCan'tBeEmpty");
+  static String get emailNotValid => tr("EmailNotValid");
   static String get enterAValidEmail => tr('EnterAValidEmail');
   static String get connectionTimeout => "Connection_timeout".tr();
   static String get sendTimeout => "Send_timeout".tr();

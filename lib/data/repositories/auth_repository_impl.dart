@@ -7,7 +7,7 @@ import '../datasource/contract/auth_local_datasource.dart';
 import '../datasource/contract/auth_remote_datasource.dart';
 
 @Injectable(as: AuthRepository)
-class AuthRepositoryImpl extends AuthRepository {
+class AuthRepositoryImpl implements AuthRepository {
   final AuthLocalDatasource authLocalDatasource;
   final AuthRemoteDatasource authRemoteDatasource;
 
