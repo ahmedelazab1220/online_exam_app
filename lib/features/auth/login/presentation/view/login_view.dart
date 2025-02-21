@@ -1,5 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:online_exam_app/core/utils/extenstion/translations.dart';
+import '../../../../../core/utils/l10n/locale_keys.g.dart';
 import 'widgets/login_form.dart';
 
 class LoginView extends StatelessWidget {
@@ -9,7 +10,7 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(context.login),
+        title: Text(LocaleKeys.Authentication_Login.tr()),
       ),
       body: LoginForm(),
     );

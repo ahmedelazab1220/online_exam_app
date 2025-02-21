@@ -1,11 +1,12 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_exam_app/core/base/base_state.dart';
-import 'package:online_exam_app/core/utils/extenstion/translations.dart';
 import '../../../../core/assets/app_colors.dart';
 import '../../../../core/di/di.dart';
 import '../../../../core/utils/dialogs/app_dialogs.dart';
 import '../../../../core/utils/dialogs/app_toasts.dart';
+import '../../../../core/utils/l10n/locale_keys.g.dart';
 import '../view_model/forget_password_cubit/forget_password_cubit.dart';
 import 'widgets/forget_password_form.dart';
 
@@ -28,7 +29,7 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
           if (state.baseState is BaseLoadingState) {
             AppDialogs.showLoadingDialog(
               context,
-              message: context.loading,
+              message: LocaleKeys.Loading.tr(),
             );
           }
           if (state.baseState is BaseHideLoadingState) {
@@ -43,18 +44,20 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
                 Navigator.pop(context);
                 viewModel.doIntent(OtpRequestAction());
               },
-              nextActionTitle: context.retry,
+              nextActionTitle: LocaleKeys.Retry.tr(),
             );
           }
           if (state.baseState is BaseSuccessState) {
-            showToast(title: context.otpSentToYourEmail, color: AppColors.blue);
+            showToast(
+                title: LocaleKeys.Messages_OtpSentToYourEmail.tr(),
+                color: AppColors.blue);
             // i'll uncomment it when add otpVerify view
             //Navigator.pushNamed(context, AppRoutes.otpVerifyRoute);
           }
         },
         child: Scaffold(
           appBar: AppBar(
-            title: Text(context.password),
+            title: Text(LocaleKeys.Authentication_Password.tr()),
           ),
           body: ForgetPasswordForm(),
         ),

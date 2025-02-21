@@ -10,13 +10,13 @@ abstract class ApiException implements Exception {
 
 class InternetConnectionException extends ApiException {
   const InternetConnectionException({
-    super.message = 'No internet connection',
+    required super.message,
   });
 }
 
 class ApiTimeoutException extends ApiException {
   const ApiTimeoutException({
-    super.message = 'Request timed out. Please try again.',
+    required super.message,
   });
 }
 
@@ -56,25 +56,25 @@ class InternalServerErrorException extends ApiException {
 }
 
 class CertificateException extends ApiException {
-  const CertificateException({
-    super.message = 'Invalid security certificate. Please contact support.',
+  CertificateException({
+    required super.message,
   });
 }
 
 class RequestCancelledException extends ApiException {
   const RequestCancelledException({
-    super.message = 'Request cancelled by the client.',
+    required super.message,
   });
 }
 
 class UnknownApiException extends ApiException {
   const UnknownApiException({
-    super.message = 'An unknown error occurred',
+    required super.message,
   });
 }
 
 class DataParsingException extends ApiException {
   const DataParsingException({
-    super.message = 'Data parsing failed',
+    required super.message,
   });
 }

@@ -1,7 +1,8 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:injectable/injectable.dart';
-import '../../core/utils/extenstion/translations.dart';
+import '../../core/utils/l10n/locale_keys.g.dart';
 import '../../domain/core/api_result.dart';
 import 'app_exception.dart';
 
@@ -14,17 +15,18 @@ class ApiManager {
     } on SocketException {
       return FailureResult<T>(
         InternetConnectionException(
-            message: StringTranslations.connectionFailed),
+            message: LocaleKeys.Error_NoInternetConnection.tr()),
       );
     } on DioException catch (e) {
       return _handleDioException<T>(e);
     } on FormatException {
       return FailureResult<T>(
-        DataParsingException(message: StringTranslations.unexpectedError),
+        DataParsingException(
+            message: LocaleKeys.Error_DataParsingException.tr()),
       );
     } catch (e) {
       return FailureResult<T>(
-        UnknownApiException(message: StringTranslations.unexpectedError),
+        UnknownApiException(message: LocaleKeys.Error_Unexpected_error.tr()),
       );
     }
   }
@@ -39,28 +41,29 @@ class ApiManager {
         );
       case DioExceptionType.badCertificate:
         return FailureResult<T>(
-          CertificateException(message: StringTranslations.invalidCertificate),
+          CertificateException(
+              message: LocaleKeys.Error_Invalid_certificate.tr()),
         );
       case DioExceptionType.badResponse:
         if (e.response == null) {
           return FailureResult<T>(UnknownApiException(
-              message: StringTranslations.unexpectedServerError));
+              message: LocaleKeys.Error_Unexpected_server_error.tr()));
         }
         return _handleBadResponse<T>(e.response!);
       case DioExceptionType.cancel:
         return FailureResult<T>(
           RequestCancelledException(
-              message: StringTranslations.requestCancelled),
+              message: LocaleKeys.Error_Request_cancelled.tr()),
         );
       case DioExceptionType.connectionError:
         return FailureResult<T>(
           InternetConnectionException(
-              message: StringTranslations.connectionFailed),
+              message: LocaleKeys.Error_Connection_failed.tr()),
         );
       case DioExceptionType.unknown:
         return FailureResult<T>(
           UnknownApiException(
-              message: e.message ?? StringTranslations.unexpectedError),
+              message: e.message ?? LocaleKeys.Error_Unexpected_error.tr()),
         );
     }
   }
@@ -104,7 +107,7 @@ class ApiManager {
   String _extractErrorMessage(dynamic data) {
     if (data is Map<String, dynamic>) {
       return data['message']?.toString() ??
-          StringTranslations.unexpectedServerError;
+          LocaleKeys.Error_Unexpected_server_error.tr();
     }
     return data.toString();
   }
@@ -112,13 +115,13 @@ class ApiManager {
   String _getTimeoutMessage(DioExceptionType type) {
     switch (type) {
       case DioExceptionType.connectionTimeout:
-        return StringTranslations.connectionTimeout;
+        return LocaleKeys.Error_Connection_timeout.tr();
       case DioExceptionType.sendTimeout:
-        return StringTranslations.sendTimeout;
+        return LocaleKeys.Error_Send_timeout.tr();
       case DioExceptionType.receiveTimeout:
-        return StringTranslations.receiveTimeout;
+        return LocaleKeys.Error_Receive_timeout.tr();
       default:
-        return StringTranslations.timeoutOccurred;
+        return LocaleKeys.Error_Timeout_occurred.tr();
     }
   }
 }

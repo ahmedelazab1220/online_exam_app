@@ -1,7 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:online_exam_app/core/utils/extenstion/translations.dart';
 import '../../../../../core/assets/app_colors.dart';
+import '../../../../../core/utils/l10n/locale_keys.g.dart';
 import '../../view_model/forget_password_cubit/forget_password_cubit.dart';
 
 class ForgetPasswordForm extends StatelessWidget {
@@ -23,7 +24,7 @@ class ForgetPasswordForm extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    context.forgotPassword,
+                    LocaleKeys.Authentication_ForgetPassword.tr(),
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           fontSize: 18,
                         ),
@@ -38,7 +39,7 @@ class ForgetPasswordForm extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      context.pleaseEnterYourEmail,
+                      LocaleKeys.Authentication_PleaseEnterYourEmail.tr(),
                       style: Theme.of(context).textTheme.titleSmall!.copyWith(
                             fontWeight: FontWeight.w400,
                           ),
@@ -57,8 +58,8 @@ class ForgetPasswordForm extends StatelessWidget {
                 keyboardType: TextInputType.emailAddress,
                 controller: viewModel.emailController,
                 decoration: InputDecoration(
-                  labelText: context.email,
-                  hintText: context.enterYourEmail,
+                  labelText: LocaleKeys.Authentication_Email.tr(),
+                  hintText: LocaleKeys.Authentication_EnterYourEmail.tr(),
                 ),
                 onTapOutside: (_) =>
                     FocusManager.instance.primaryFocus?.unfocus(),
@@ -76,7 +77,7 @@ class ForgetPasswordForm extends StatelessWidget {
                         ? AppColors.blue
                         : AppColors.black[AppColors.colorCode30],
                   ),
-                  child: Text(context.continueText),
+                  child: Text(LocaleKeys.Authentication_Continue.tr()),
                 ),
               ),
             ],

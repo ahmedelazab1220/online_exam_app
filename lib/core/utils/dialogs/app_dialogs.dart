@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:online_exam_app/core/utils/extenstion/translations.dart';
+import '../l10n/locale_keys.g.dart';
 
 class AppDialogs {
   // Show a loading dialog
@@ -17,7 +17,7 @@ class AppDialogs {
             children: [
               const CircularProgressIndicator(),
               const SizedBox(height: 16),
-              Text(message ?? context.loading),
+              Text(message ?? LocaleKeys.Loading),
             ],
           ),
         );
@@ -52,7 +52,7 @@ class AppDialogs {
               ),
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: Text(buttonText ?? context.ok),
+              child: Text(buttonText ?? LocaleKeys.Ok),
             ),
           ],
         );
@@ -73,7 +73,7 @@ class AppDialogs {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text(title ?? context.error),
+          title: Text(title ?? LocaleKeys.Error),
           content: Text(message),
           actions: [
             if (nextAction != null && nextActionTitle != null)
@@ -83,7 +83,7 @@ class AppDialogs {
               ),
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: Text(buttonText ?? context.ok),
+              child: Text(buttonText ?? LocaleKeys.Ok),
             ),
           ],
         );

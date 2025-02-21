@@ -1,5 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:online_exam_app/core/utils/extenstion/translations.dart';
+import '../../../../../../core/utils/l10n/locale_keys.g.dart';
 import 'do_not_have_an_account_widget.dart';
 import 'remember_me_and_forget_password_widget.dart';
 
@@ -19,8 +20,8 @@ class LoginForm extends StatelessWidget {
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: context.email,
-                  hintText: context.enterYourEmail,
+                  labelText: LocaleKeys.Authentication_Email.tr(),
+                  hintText: LocaleKeys.Authentication_EnterYourEmail.tr(),
                 ),
                 onTapOutside: (_) =>
                     FocusManager.instance.primaryFocus?.unfocus(),
@@ -32,8 +33,8 @@ class LoginForm extends StatelessWidget {
                 keyboardType: TextInputType.visiblePassword,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: context.password,
-                  hintText: context.enterYourPassword,
+                  labelText: LocaleKeys.Authentication_Password.tr(),
+                  hintText: LocaleKeys.Authentication_EnterYourPassword.tr(),
                 ),
                 onTapOutside: (_) =>
                     FocusManager.instance.primaryFocus?.unfocus(),
@@ -44,7 +45,7 @@ class LoginForm extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {},
-                child: Text(context.login),
+                child: Text(LocaleKeys.Authentication_Login.tr()),
               ),
               SizedBox(
                 height: 16.0,
