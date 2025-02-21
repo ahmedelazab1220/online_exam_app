@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:online_exam_app/core/utils/extenstion/translations.dart';
 import 'package:online_exam_app/core/utils/validation/validator.dart';
 
+import '../../../../../core/base/base_state.dart';
 import '../../../../../domain/core/api_result.dart';
 import '../../../../../domain/entities/forget_password_entity.dart';
 import '../../../../../domain/use_cases/forget_password_use_case.dart';
@@ -15,7 +17,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
   final Validator validator = Validator();
 
   ForgetPasswordCubit(this.forgetPasswordUseCase)
-      : super(ForgetPasswordInitial());
+      : super(ForgetPasswordState(baseState: BaseInitialState()));
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
@@ -31,50 +33,45 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
         {
           _forgetPassword();
         }
-      case NavigateToOtpScreenAction():
-        {
-          _navigateToOtpScreen();
-        }
-      case NavigateToLoginScreenAction():
-        {
-          _navigateToLoginScreen();
-        }
     }
   }
 
   void _forgetPassword() async {
     if (formKey.currentState!.validate()) {
-      emit(ForgetPasswordLoadingState());
+      emit(state.copyWith(baseState: BaseLoadingState()));
       var response = await forgetPasswordUseCase(email: emailController.text);
-      emit(HideLoadingState());
+      emit(ForgetPasswordState(baseState: BaseHideLoadingState()));
       switch (response) {
         case SuccessResult<ForgetPasswordEntity>():
           {
-            emit(ForgetPasswordSuccessState());
+            emit(state.copyWith(baseState: BaseSuccessState()));
           }
         case FailureResult<ForgetPasswordEntity>():
           {
-            emit(ForgetPasswordFailureState(response.exception.toString()));
+            emit(
+              state.copyWith(
+                baseState: BaseErrorState(
+                    errorMessage: response.exception.toString(),
+                    exception: response.exception),
+              ),
+            );
           }
       }
     }
   }
 
   void _updateValidationState() {
-    if (emailController.text.isEmpty) {
-      valid.value = false;
-    } else if (!formKey.currentState!.validate()) {
-      valid.value = false;
-    } else {
+    if (emailController.text.isNotEmpty && formKey.currentState!.validate()) {
       valid.value = true;
+    } else {
+      valid.value = false;
+      emit(
+        state.copyWith(
+          baseState: BaseErrorState(
+            errorMessage: StringTranslations.emailNotValid,
+          ),
+        ),
+      );
     }
-  }
-
-  void _navigateToOtpScreen() {
-    emit(NavigateToOtpScreenState());
-  }
-
-  void _navigateToLoginScreen() {
-    emit(NavigateToLoginScreenState());
   }
 }

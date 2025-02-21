@@ -8,7 +8,7 @@ import '../../api/models/auth/forget_password/request/forget_password_request_dt
 import '../contract/auth_remote_datasource.dart';
 
 @Injectable(as: AuthRemoteDatasource)
-class AuthRemoteDatasourceImpl extends AuthRemoteDatasource {
+class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
   final AuthRetrofitClient authRetrofitClient;
   final ApiManager apiManager;
 
