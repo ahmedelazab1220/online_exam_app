@@ -1,5 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:online_exam_app/core/utils/extenstion/translations.dart';
+import '../../../../../core/utils/l10n/locale_keys.g.dart';
 import 'widgets/sign_up_form.dart';
 
 class SignUpView extends StatelessWidget {
@@ -9,7 +10,7 @@ class SignUpView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(context.signUp),
+        title: Text(LocaleKeys.Authentication_SignUp.tr()),
       ),
       body: SignUpForm(),
     );

@@ -1,10 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:online_exam_app/core/utils/extenstion/translations.dart';
-import 'package:online_exam_app/core/utils/validation/validator.dart';
-
 import '../../../../../core/base/base_state.dart';
+import '../../../../../core/utils/l10n/locale_keys.g.dart';
+import '../../../../../core/utils/validation/validator.dart';
 import '../../../../../domain/core/api_result.dart';
 import '../../../../../domain/entities/forget_password_entity.dart';
 import '../../../../../domain/use_cases/forget_password_use_case.dart';
@@ -68,7 +68,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
       emit(
         state.copyWith(
           baseState: BaseErrorState(
-            errorMessage: StringTranslations.emailNotValid,
+            errorMessage: LocaleKeys.Error_EmailNotValid.tr(),
           ),
         ),
       );

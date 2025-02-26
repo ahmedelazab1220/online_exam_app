@@ -1,8 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:online_exam_app/core/utils/extenstion/translations.dart';
 import '../../../../../../core/assets/app_colors.dart';
 import '../../../../../../core/navigation/routes.dart';
+import '../../../../../../core/utils/l10n/locale_keys.g.dart';
 
 class AlreadyHaveAccountSignUp extends StatelessWidget {
   const AlreadyHaveAccountSignUp({super.key});
@@ -12,11 +13,11 @@ class AlreadyHaveAccountSignUp extends StatelessWidget {
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
-        text: context.alreadyHaveAnAccount,
+        text: LocaleKeys.Authentication_AlreadyHaveAnAccount.tr(),
         style: Theme.of(context).textTheme.bodyLarge,
         children: [
           TextSpan(
-            text: context.login,
+            text: LocaleKeys.Authentication_Login.tr(),
             style: TextStyle(
               decoration: TextDecoration.underline,
               color: AppColors.blue,

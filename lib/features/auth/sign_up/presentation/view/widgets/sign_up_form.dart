@@ -1,5 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:online_exam_app/core/utils/extenstion/translations.dart';
+import '../../../../../../core/utils/l10n/locale_keys.g.dart';
 import 'already_have_account_sign_up.dart';
 
 class SignUpForm extends StatelessWidget {
@@ -15,8 +16,8 @@ class SignUpForm extends StatelessWidget {
           children: [
             TextFormField(
               decoration: InputDecoration(
-                hintText: context.enterYourUserName,
-                labelText: context.userName,
+                hintText: LocaleKeys.Authentication_EnterYourUserName.tr(),
+                labelText: LocaleKeys.Authentication_UserName.tr(),
               ),
               onTapOutside: (_) =>
                   FocusManager.instance.primaryFocus?.unfocus(),
@@ -29,8 +30,8 @@ class SignUpForm extends StatelessWidget {
                   Expanded(
                     child: TextFormField(
                       decoration: InputDecoration(
-                        hintText: context.enterFirstName,
-                        labelText: context.firstName,
+                        hintText: LocaleKeys.Authentication_EnterFirstName.tr(),
+                        labelText: LocaleKeys.Authentication_FirstName.tr(),
                       ),
                       onTapOutside: (_) =>
                           FocusManager.instance.primaryFocus?.unfocus(),
@@ -39,8 +40,8 @@ class SignUpForm extends StatelessWidget {
                   Expanded(
                     child: TextFormField(
                       decoration: InputDecoration(
-                        hintText: context.enterLastName,
-                        labelText: context.lastName,
+                        hintText: LocaleKeys.Authentication_EnterLastName.tr(),
+                        labelText: LocaleKeys.Authentication_LastName.tr(),
                       ),
                       onTapOutside: (_) =>
                           FocusManager.instance.primaryFocus?.unfocus(),
@@ -51,8 +52,8 @@ class SignUpForm extends StatelessWidget {
             ),
             TextFormField(
               decoration: InputDecoration(
-                hintText: context.enterYourEmail,
-                labelText: context.email,
+                hintText: LocaleKeys.Authentication_EnterYourEmail.tr(),
+                labelText: LocaleKeys.Authentication_Email.tr(),
               ),
               onTapOutside: (_) =>
                   FocusManager.instance.primaryFocus?.unfocus(),
@@ -65,8 +66,9 @@ class SignUpForm extends StatelessWidget {
                   Expanded(
                     child: TextFormField(
                       decoration: InputDecoration(
-                        hintText: context.enterYourPassword,
-                        labelText: context.password,
+                        hintText:
+                            LocaleKeys.Authentication_EnterYourPassword.tr(),
+                        labelText: LocaleKeys.Authentication_Password.tr(),
                       ),
                       onTapOutside: (_) =>
                           FocusManager.instance.primaryFocus?.unfocus(),
@@ -75,8 +77,10 @@ class SignUpForm extends StatelessWidget {
                   Expanded(
                     child: TextFormField(
                       decoration: InputDecoration(
-                        hintText: context.confirmPassword,
-                        labelText: context.confirmPassword,
+                        hintText:
+                            LocaleKeys.Authentication_ConfirmPassword.tr(),
+                        labelText:
+                            LocaleKeys.Authentication_ConfirmPassword.tr(),
                       ),
                       onTapOutside: (_) =>
                           FocusManager.instance.primaryFocus?.unfocus(),
@@ -87,8 +91,8 @@ class SignUpForm extends StatelessWidget {
             ),
             TextFormField(
               decoration: InputDecoration(
-                hintText: context.enterPhoneNumber,
-                labelText: context.phoneNumber,
+                hintText: LocaleKeys.Authentication_EnterPhoneNumber.tr(),
+                labelText: LocaleKeys.Authentication_PhoneNumber.tr(),
               ),
               onTapOutside: (_) =>
                   FocusManager.instance.primaryFocus?.unfocus(),
@@ -98,7 +102,7 @@ class SignUpForm extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {},
-              child: Text(context.signUp),
+              child: Text(LocaleKeys.Authentication_SignUp.tr()),
             ),
             SizedBox(
               height: 16.0,
