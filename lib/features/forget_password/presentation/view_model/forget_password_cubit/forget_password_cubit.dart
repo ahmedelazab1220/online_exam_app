@@ -1,10 +1,8 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import '../../../../../core/base/base_state.dart';
-import '../../../../../core/utils/l10n/locale_keys.g.dart';
 import '../../../../../core/utils/validation/validator.dart';
 import '../../../../../domain/core/api_result.dart';
 import '../../../../../domain/entities/forget_password_entity.dart';
@@ -15,9 +13,9 @@ part 'forget_password_state.dart';
 @injectable
 class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
   final ForgetPasswordUseCase forgetPasswordUseCase;
-  final Validator validator = Validator();
+  final Validator validator;
 
-  ForgetPasswordCubit(this.forgetPasswordUseCase)
+  ForgetPasswordCubit(this.forgetPasswordUseCase, this.validator)
       : super(ForgetPasswordState(baseState: BaseInitialState()));
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -72,13 +70,6 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
       valid.value = true;
     } else {
       valid.value = false;
-      emit(
-        state.copyWith(
-          baseState: BaseErrorState(
-            errorMessage: LocaleKeys.Error_EmailNotValid.tr(),
-          ),
-        ),
-      );
     }
   }
 }

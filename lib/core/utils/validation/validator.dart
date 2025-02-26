@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:injectable/injectable.dart';
 import 'package:online_exam_app/core/utils/l10n/locale_keys.g.dart';
 
+@lazySingleton
 class Validator {
   String? emailValidation(String input) {
     if (input.isEmpty) {
