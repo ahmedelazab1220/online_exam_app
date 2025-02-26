@@ -1,15 +1,18 @@
 part of 'forget_password_cubit.dart';
 
-class ForgetPasswordState {
+class ForgetPasswordState extends Equatable {
   final BaseState baseState;
 
-  ForgetPasswordState({required this.baseState});
+  const ForgetPasswordState({required this.baseState});
 
   ForgetPasswordState copyWith({BaseState? baseState}) {
     return ForgetPasswordState(
       baseState: baseState ?? this.baseState,
     );
   }
+
+  @override
+  List<Object?> get props => [baseState];
 }
 
 // actions
