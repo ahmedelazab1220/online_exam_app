@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
@@ -22,6 +23,12 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   ValueNotifier<bool> valid = ValueNotifier(false);
+
+  @override
+  Future<void> close() {
+    emailController.dispose();
+    return super.close();
+  }
 
   void doIntent(ForgetPasswordAction action) {
     switch (action) {
