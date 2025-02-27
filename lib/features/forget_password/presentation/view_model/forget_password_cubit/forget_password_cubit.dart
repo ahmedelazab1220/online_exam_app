@@ -15,9 +15,8 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
   final ForgetPasswordUseCase forgetPasswordUseCase;
   final Validator validator;
 
-  ForgetPasswordCubit(this.forgetPasswordUseCase, {Validator? validator})
-      : validator = validator ?? Validator(),
-        super(ForgetPasswordState(baseState: BaseInitialState()));
+  ForgetPasswordCubit(this.forgetPasswordUseCase, this.validator)
+      : super(ForgetPasswordState(baseState: BaseInitialState()));
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();

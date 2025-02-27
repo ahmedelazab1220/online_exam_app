@@ -29,6 +29,7 @@ import '../../features/forget_password/presentation/view_model/forget_password_c
     as _i1009;
 import '../utils/bloc_observer/bloc_observer_service.dart' as _i96;
 import '../utils/logger/logger_module.dart' as _i997;
+import '../utils/validation/validator.dart' as _i225;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -41,14 +42,15 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    final dioModule = _$DioModule();
     final loggerModule = _$LoggerModule();
+    final dioModule = _$DioModule();
     gh.singleton<_i442.ApiManager>(() => _i442.ApiManager());
+    gh.lazySingleton<_i974.Logger>(() => loggerModule.loggerProvider);
+    gh.lazySingleton<_i974.PrettyPrinter>(() => loggerModule.prettyPrinter);
+    gh.lazySingleton<_i225.Validator>(() => _i225.Validator());
     gh.lazySingleton<_i361.Dio>(() => dioModule.provideDio());
     gh.lazySingleton<_i528.PrettyDioLogger>(
         () => dioModule.providerInterceptor());
-    gh.lazySingleton<_i974.Logger>(() => loggerModule.loggerProvider);
-    gh.lazySingleton<_i974.PrettyPrinter>(() => loggerModule.prettyPrinter);
     gh.factory<_i96.BlocObserverService>(
         () => _i96.BlocObserverService(gh<_i974.Logger>()));
     gh.lazySingleton<_i797.AuthRetrofitClient>(
@@ -65,12 +67,14 @@ extension GetItInjectableX on _i174.GetIt {
         ));
     gh.factory<_i755.ForgetPasswordUseCase>(() =>
         _i755.ForgetPasswordUseCase(repository: gh<_i1073.AuthRepository>()));
-    gh.factory<_i1009.ForgetPasswordCubit>(
-        () => _i1009.ForgetPasswordCubit(gh<_i755.ForgetPasswordUseCase>()));
+    gh.factory<_i1009.ForgetPasswordCubit>(() => _i1009.ForgetPasswordCubit(
+          gh<_i755.ForgetPasswordUseCase>(),
+          gh<_i225.Validator>(),
+        ));
     return this;
   }
 }
 
-class _$DioModule extends _i719.DioModule {}
-
 class _$LoggerModule extends _i997.LoggerModule {}
+
+class _$DioModule extends _i719.DioModule {}
