@@ -62,7 +62,8 @@ void main() {
   }
 
   group('Testing Email Validation Function', () {
-    testWidgets('should return false when the input is empty', (tester) async {
+    testWidgets('should return error message when the input is empty',
+        (tester) async {
       await tester.runAsync(() async {
         await pumpLocalizedWidget(tester);
 
@@ -81,7 +82,7 @@ void main() {
       });
     });
 
-    testWidgets('should return false when the input is invalid',
+    testWidgets('should return error message when the input is invalid',
         (tester) async {
       await tester.runAsync(() async {
         await pumpLocalizedWidget(tester);
