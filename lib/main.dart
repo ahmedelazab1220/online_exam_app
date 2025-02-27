@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_exam_app/core/di/di.dart';
 import 'package:online_exam_app/core/theme/app_theme.dart';
+import 'package:online_exam_app/features/bottom_navigation_bar/presentation/view_model/bottom_nav_bar_cubit/bottom_nav_bar_cubit.dart';
 import 'core/navigation/routes.dart';
 import 'core/utils/bloc_observer/bloc_observer_service.dart';
 
@@ -31,14 +32,19 @@ class OnlineExamApp extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         return SafeArea(
-          child: MaterialApp(
-            localizationsDelegates: context.localizationDelegates,
-            supportedLocales: context.supportedLocales,
-            locale: context.locale,
-            debugShowCheckedModeBanner: false,
-            routes: AppRoutes.routes,
-            theme: AppTheme.appTheme,
-            initialRoute: AppRoutes.loginRoute,
+          child: MultiBlocProvider(
+            providers: [
+              BlocProvider(create: (context) => BottomNavigationBarCubit()),
+            ],
+            child: MaterialApp(
+              localizationsDelegates: context.localizationDelegates,
+              supportedLocales: context.supportedLocales,
+              locale: context.locale,
+              debugShowCheckedModeBanner: false,
+              routes: AppRoutes.routes,
+              theme: AppTheme.appTheme,
+              initialRoute: AppRoutes.bottomNavBar,
+            ),
           ),
         );
       },
