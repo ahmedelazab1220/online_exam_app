@@ -90,6 +90,7 @@ abstract class LocaleKeys {
       'Result.CorrectedAnswersIn25Min';
   static const Result_Algebra = 'Result.Algebra';
   static const Result = 'Result';
+  static const Result_Result = 'Result.Result';
   static const Error_EmailAlreadyExists = 'Error.EmailAlreadyExists';
   static const Error_PasswordCannotBeEmpty = 'Error.PasswordCannotBeEmpty';
   static const Error_ConfirmPasswordMustMatch =
