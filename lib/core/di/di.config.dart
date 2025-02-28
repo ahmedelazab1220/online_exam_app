@@ -25,6 +25,8 @@ import '../../data/datasource/remote/auth_remote_datasource_impl.dart' as _i498;
 import '../../data/repositories/auth_repository_impl.dart' as _i895;
 import '../../domain/repositories/auth_repository.dart' as _i1073;
 import '../../domain/use_cases/forget_password_use_case.dart' as _i755;
+import '../../features/bottom_navigation_bar/presentation/view_model/bottom_nav_bar_cubit/bottom_nav_bar_cubit.dart'
+    as _i423;
 import '../../features/forget_password/presentation/view_model/forget_password_cubit/forget_password_cubit.dart'
     as _i1009;
 import '../utils/bloc_observer/bloc_observer_service.dart' as _i96;
@@ -44,6 +46,8 @@ extension GetItInjectableX on _i174.GetIt {
     );
     final loggerModule = _$LoggerModule();
     final dioModule = _$DioModule();
+    gh.factory<_i423.BottomNavigationBarCubit>(
+        () => _i423.BottomNavigationBarCubit());
     gh.singleton<_i442.ApiManager>(() => _i442.ApiManager());
     gh.lazySingleton<_i974.Logger>(() => loggerModule.loggerProvider);
     gh.lazySingleton<_i974.PrettyPrinter>(() => loggerModule.prettyPrinter);

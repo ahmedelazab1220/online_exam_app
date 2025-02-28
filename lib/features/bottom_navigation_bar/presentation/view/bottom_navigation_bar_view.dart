@@ -12,35 +12,38 @@ class BottomNavigationBarView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = BlocProvider.of<BottomNavigationBarCubit>(context);
-    return BlocConsumer<BottomNavigationBarCubit, BottomNavigationBarStates>(
-      listener: (context, state) {},
-      builder: (context, state) {
-        return Scaffold(
-          bottomNavigationBar: NavigationBar(
-            selectedIndex: cubit.bottomNavIndex,
-            onDestinationSelected: (currentIndex) {
-              debugPrint("Current index is : $currentIndex");
-              cubit.changeBottomNavIndex(currentIndex: currentIndex);
-            },
-            destinations: [
-              NavigationDestination(
-                icon: cubit.bottomNavIndex == 0 ?SvgPicture.asset(AppIcons.exploreIcon):SvgPicture.asset(AppIcons.unSelectedExploreIcon),
-                label: LocaleKeys.Home_Explore.tr(),
-              ),
-              NavigationDestination(
-                icon: cubit.bottomNavIndex == 1 ?SvgPicture.asset(AppIcons.resultIcon):SvgPicture.asset(AppIcons.unSelectedResultIcon),
-                label: LocaleKeys.Result_Result.tr(),
-              ),
-              NavigationDestination(
-                icon: cubit.bottomNavIndex == 2 ?SvgPicture.asset(AppIcons.profileIcon):SvgPicture.asset(AppIcons.unSelectedProfileIcon),
-                label: LocaleKeys.Profile_Profile.tr(),
-              ),
-            ],
-          ),
-          body: cubit.screens[cubit.bottomNavIndex],
-        );
-      },
+    return BlocProvider(
+      create: (context) => BottomNavigationBarCubit(),
+      child: BlocConsumer<BottomNavigationBarCubit, BottomNavigationBarStates>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          final cubit = BlocProvider.of<BottomNavigationBarCubit>(context);
+          return Scaffold(
+            bottomNavigationBar: NavigationBar(
+              selectedIndex: cubit.bottomNavIndex,
+              onDestinationSelected: (currentIndex) {
+                debugPrint("Current index is : $currentIndex");
+                cubit.changeBottomNavIndex(currentIndex: currentIndex);
+              },
+              destinations: [
+                NavigationDestination(
+                  icon: cubit.bottomNavIndex == 0 ?SvgPicture.asset(AppIcons.exploreIcon):SvgPicture.asset(AppIcons.unSelectedExploreIcon),
+                  label: LocaleKeys.Home_Explore.tr(),
+                ),
+                NavigationDestination(
+                  icon: cubit.bottomNavIndex == 1 ?SvgPicture.asset(AppIcons.resultIcon):SvgPicture.asset(AppIcons.unSelectedResultIcon),
+                  label: LocaleKeys.Result_Result.tr(),
+                ),
+                NavigationDestination(
+                  icon: cubit.bottomNavIndex == 2 ?SvgPicture.asset(AppIcons.profileIcon):SvgPicture.asset(AppIcons.unSelectedProfileIcon),
+                  label: LocaleKeys.Profile_Profile.tr(),
+                ),
+              ],
+            ),
+            body: cubit.screens[cubit.bottomNavIndex],
+          );
+        },
+      ),
     );
   }
 }
