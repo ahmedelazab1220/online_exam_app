@@ -35,7 +35,12 @@
   "Profile": {
     "Profile": "Profile",
     "EditProfile": "Edit profile",
-    "Change": "Change"
+    "Change": "Change",
+    "Update": "Update",
+    "ResetPassword": "Reset Password",
+    "Current_Password": "Current Password",
+    "New_Password": "New Password",
+    "Confirm_Password": "Confirm Password"
   },
   "Home": {
     "Explore": "Explore",
