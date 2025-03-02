@@ -17,8 +17,8 @@ class OtpForm extends StatefulWidget {
 class _OtpFormState extends State<OtpForm> {
   // i'll remove this when add viewModel
   final List<TextEditingController> _controllers =
-      List.generate(4, (index) => TextEditingController());
-  final List<FocusNode> _focusNodes = List.generate(4, (index) => FocusNode());
+      List.generate(6, (index) => TextEditingController());
+  final List<FocusNode> _focusNodes = List.generate(6, (index) => FocusNode());
   bool hasError = false;
 
   @override
@@ -35,10 +35,10 @@ class _OtpFormState extends State<OtpForm> {
 
   // fake function i'll remove it when add viewModel
   void _checkOtp() {
-    final String correctOtp = "1234";
+    final String correctOtp = "123456";
     String enteredOtp = _controllers.map((e) => e.text).join();
 
-    if (enteredOtp.length == 4) {
+    if (enteredOtp.length == 6) {
       if (enteredOtp == correctOtp) {
         setState(() {
           hasError = false;
@@ -57,7 +57,7 @@ class _OtpFormState extends State<OtpForm> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Row(
-          children: List.generate(4, (index) {
+          children: List.generate(6, (index) {
             return Flexible(
               child: TextFormField(
                 onChanged: (value) {
@@ -114,12 +114,12 @@ class _OtpFormState extends State<OtpForm> {
                 keyboardType: TextInputType.number,
                 cursorColor: Theme.of(context).primaryColor,
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.displaySmall,
+                style: Theme.of(context).textTheme.bodyLarge,
                 onTapOutside: (value) =>
                     FocusManager.instance.primaryFocus?.unfocus(),
               ),
             );
-          }).expand((widget) => [widget, const SizedBox(width: 16.0)]).toList()
+          }).expand((widget) => [widget, const SizedBox(width: 8.0)]).toList()
             ..removeLast(),
         ),
         if (hasError)
