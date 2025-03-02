@@ -15,8 +15,8 @@ class ResetPasswordForm extends StatelessWidget {
           children: [
             TextFormField(
               decoration: InputDecoration(
-                hintText: LocaleKeys.Profile_Current_Password.tr(),
-                labelText: LocaleKeys.Profile_Current_Password.tr(),
+                hintText: LocaleKeys.Authentication_currentPassword.tr(),
+                labelText: LocaleKeys.Authentication_currentPassword.tr(),
               ),
               onTapOutside: (_) =>
                   FocusManager.instance.primaryFocus?.unfocus(),
@@ -26,8 +26,8 @@ class ResetPasswordForm extends StatelessWidget {
             ),
             TextFormField(
               decoration: InputDecoration(
-                hintText: LocaleKeys.Profile_New_Password.tr(),
-                labelText: LocaleKeys.Profile_New_Password.tr(),
+                hintText: LocaleKeys.Authentication_NewPassword.tr(),
+                labelText: LocaleKeys.Authentication_NewPassword.tr(),
               ),
               onTapOutside: (_) =>
                   FocusManager.instance.primaryFocus?.unfocus(),
@@ -37,8 +37,8 @@ class ResetPasswordForm extends StatelessWidget {
             ),
             TextFormField(
               decoration: InputDecoration(
-                hintText: LocaleKeys.Profile_Confirm_Password.tr(),
-                labelText: LocaleKeys.Profile_Confirm_Password.tr(),
+                hintText: LocaleKeys.Authentication_ConfirmPassword.tr(),
+                labelText: LocaleKeys.Authentication_ConfirmPassword.tr(),
               ),
               onTapOutside: (_) =>
                   FocusManager.instance.primaryFocus?.unfocus(),

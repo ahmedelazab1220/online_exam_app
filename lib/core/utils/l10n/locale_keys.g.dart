@@ -54,9 +54,6 @@ abstract class LocaleKeys {
   static const Profile_Update = 'Profile.Update';
   static const Profile_ResetPassword = 'Profile.ResetPassword';
   static const Profile = 'Profile';
-  static const Profile_Current_Password = 'Profile.Current_Password';
-  static const Profile_New_Password = 'Profile.New_Password';
-  static const Profile_Confirm_Password = 'Profile.Confirm_Password';
   static const Home_Explore = 'Home.Explore';
   static const Home_Survey = 'Home.Survey';
   static const Home_BrowseBySubject = 'Home.BrowseBySubject';

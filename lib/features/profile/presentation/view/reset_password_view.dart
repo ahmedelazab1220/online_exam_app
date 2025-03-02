@@ -10,7 +10,6 @@ class ResetPasswordView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          leading: BackButton(),
           title: Text(LocaleKeys.Profile_ResetPassword.tr()),
         ),
         body: ResetPasswordForm()

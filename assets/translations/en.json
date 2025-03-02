@@ -37,10 +37,7 @@
     "EditProfile": "Edit profile",
     "Change": "Change",
     "Update": "Update",
-    "ResetPassword": "Reset Password",
-    "Current_Password": "Current Password",
-    "New_Password": "New Password",
-    "Confirm_Password": "Confirm Password"
+    "ResetPassword": "Reset Password"
   },
   "Home": {
     "Explore": "Explore",
