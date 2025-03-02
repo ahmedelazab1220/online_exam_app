@@ -8,6 +8,7 @@ class StartExamBody extends StatelessWidget {
     super.key,
     required this.index,
     required this.title,
+    required this.type,
     required this.duration,
     required this.numOfQuestions,
     required this.image,
@@ -15,6 +16,7 @@ class StartExamBody extends StatelessWidget {
 
   final int index;
   final String title;
+  final String type;
   final String image;
   final int duration;
   final int numOfQuestions;
@@ -44,8 +46,9 @@ class StartExamBody extends StatelessWidget {
                 Row(
                   children: [
                     Image.asset(image,height: 47,width: 42,),
+                    SizedBox(width: 10,),
                     Text(
-                      title,
+                      type,
                       style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                     ),
                     Spacer(),

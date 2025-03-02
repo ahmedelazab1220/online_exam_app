@@ -13,7 +13,7 @@ class ExploreDetailsView extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: ExploreDetailsBody(),
+      body: ExploreDetailsBody(title: title,),
     );
   }
 }

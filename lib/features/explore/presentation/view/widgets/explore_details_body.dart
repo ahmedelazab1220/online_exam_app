@@ -5,8 +5,8 @@ import 'package:online_exam_app/domain/entities/explore_details_entity.dart';
 import 'package:online_exam_app/features/explore/presentation/view/start_exam_view.dart';
 
 class ExploreDetailsBody extends StatelessWidget {
-  const ExploreDetailsBody({super.key});
-
+  const ExploreDetailsBody({super.key, required this.title});
+  final String title;
   @override
   Widget build(BuildContext context) {
     final groupedData = groupBy(exploreDetailsList, (ExploreDetailsEntity e) => e.type);
@@ -36,7 +36,7 @@ class ExploreDetailsBody extends StatelessWidget {
 
                 return GestureDetector(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => StartExamView(index: index, title: item.title, duration: item.duration, numOfQuestions: item.numOfQuestion, image: item.image,),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => StartExamView(index: index, title: item.title, duration: item.duration, numOfQuestions: item.numOfQuestion, image: item.image, type: title,),));
                   },
                   child: Card(
                     margin: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
