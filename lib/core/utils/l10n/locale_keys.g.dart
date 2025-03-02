@@ -59,6 +59,7 @@ abstract class LocaleKeys {
   static const Home_Math = 'Home.Math';
   static const Home_Art = 'Home.Art';
   static const Home_Science = 'Home.Science';
+  static const Home_Search = 'Home.Search';
   static const Home = 'Home';
   static const Subjects_Languages = 'Subjects.Languages';
   static const Subjects_English = 'Subjects.English';
