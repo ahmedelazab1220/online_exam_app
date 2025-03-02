@@ -14,6 +14,7 @@ class ExploreDetailsView extends StatelessWidget {
         title: Text(title),
       ),
       body: ExploreDetailsBody(title: title,),
+
     );
   }
 }
