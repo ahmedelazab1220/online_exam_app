@@ -12,9 +12,7 @@ class StartExamView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-       leading: BackButton(),
-      ),
+      appBar: AppBar(),
       body: StartExamBody(index: index, title: title, duration: duration, numOfQuestions: numOfQuestions, image: image, type: type,),
     );
   }
