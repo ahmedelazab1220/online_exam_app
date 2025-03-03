@@ -23,7 +23,7 @@ class ExploreDetailsBody extends StatelessWidget {
               padding: const EdgeInsets.all(12.0),
               child: Text(
                 type,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style:  Theme.of(context).textTheme.titleMedium!.copyWith(color: AppColors.black,fontWeight: FontWeight.w600),
               ),
             ),
 
@@ -38,34 +38,73 @@ class ExploreDetailsBody extends StatelessWidget {
                   onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context) => StartExamView(index: index, title: item.title, duration: item.duration, numOfQuestions: item.numOfQuestion, image: item.image, type: title,),));
                   },
-                  child: Card(
-                    margin: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                    shape: RoundedRectangleBorder(
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                    decoration: BoxDecoration(
+                      color: AppColors.white,
                       borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: AppColors.black.withOpacity(0.1),
+                          blurRadius: 3,
+                          spreadRadius: 1,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
                     ),
-                    elevation: 3,
-                    child: ListTile(
-                      contentPadding: EdgeInsets.symmetric(vertical: 8,horizontal: 20),
-                      tileColor: AppColors.white,
-                      leading: Image.asset(
-                        item.image,
-                        width: 60,
-                        height: 71,
-                        fit: BoxFit.cover,
-                      ),
-                      title: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(item.title,style: TextStyle(fontSize: 16,fontWeight: FontWeight.w500,color: AppColors.black),),
-                          Text("${item.duration} Minutes",style: TextStyle(fontSize: 13,fontWeight: FontWeight.w400,color: AppColors.blue)),
-                        ],
-                      ),
-                      subtitle: Column(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+                      child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("${item.numOfQuestion} Question",style: TextStyle(fontSize: 13,fontWeight: FontWeight.w400,color: AppColors.gray)),
-                          SizedBox(height: 10,),
-                          Text("From: ${item.fromTime}  To: ${item.toTime}",style: TextStyle(fontSize: 13,fontWeight: FontWeight.w500,color: AppColors.black)),
+                          Image.asset(
+                            item.image,
+                            width: 60,
+                            height: 71,
+                            fit: BoxFit.cover,
+                          ),
+                          const SizedBox(width: 16),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      item.title,
+                                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                                        color: AppColors.black,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    Text(
+                                      "${item.duration} Minutes",
+                                      style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                                        color: AppColors.blue,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Text(
+                                  "${item.numOfQuestion} Question",
+                                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                                    color: AppColors.gray,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                                const SizedBox(height: 15),
+                                Text(
+                                  "From: ${item.fromTime}  To: ${item.toTime}",
+                                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                                    color: AppColors.black,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ),

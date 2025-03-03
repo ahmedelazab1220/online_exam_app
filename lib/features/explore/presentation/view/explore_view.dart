@@ -10,10 +10,6 @@ class ExploreView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: null,
-        title: Text(LocaleKeys.Home_Survey.tr(),style: TextStyle(color: AppColors.blue,fontWeight: FontWeight.w500,fontSize: 20),),
-      ),
       body: ExploreBody(),
     );
   }
