@@ -78,7 +78,7 @@ class ProfileForm extends StatelessWidget {
                   padding: const EdgeInsets.all(12),
                   child: GestureDetector(
                     onTap: (){
-                      Navigator.pushReplacementNamed(context, AppRoutes.resetPasswordRoute);
+                      Navigator.pushReplacementNamed(context, AppRoutes.changePasswordRoute);
                     },
                     child: Text(LocaleKeys.Profile_Change.tr(),style: TextStyle(
                       color: AppColors.blue,
