@@ -9,6 +9,7 @@ class AppRoutes {
   static const String signUpRoute = "/signUp";
   static const String forgetPasswordRoute = "/forgetPassword";
   static const String otpVerifyRoute = "/otpVerify";
+  static const String resetPasswordRoute = "/resetPassword";
 
   static Map<String, Widget Function(dynamic)> routes = {
     loginRoute: (context) => LoginView(),

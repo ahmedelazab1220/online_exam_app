@@ -5,6 +5,7 @@
 abstract class LocaleKeys {
   static const Authentication_Login = 'Authentication.Login';
   static const Authentication_SignUp = 'Authentication.SignUp';
+  static const Authentication_SendOtp = 'Authentication.SendOtp';
   static const Authentication_Email = 'Authentication.Email';
   static const Authentication_EnterYourEmail = 'Authentication.EnterYourEmail';
   static const Authentication_InvalidEmail = 'Authentication.InvalidEmail';
@@ -94,6 +95,8 @@ abstract class LocaleKeys {
   static const Error_PasswordCannotBeEmpty = 'Error.PasswordCannotBeEmpty';
   static const Error_ConfirmPasswordMustMatch =
       'Error.ConfirmPasswordMustMatch';
+  static const Error_OtpCodeIsInvalidOrExpired =
+      'Error.OtpCodeIsInvalidOrExpired';
   static const Error_PasswordEnterAValidPassword =
       'Error.PasswordEnterAValidPassword';
   static const Error_EmailCannotBeEmpty = 'Error.EmailCannotBeEmpty';

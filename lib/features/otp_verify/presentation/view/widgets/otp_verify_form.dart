@@ -1,8 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:online_exam_app/core/utils/l10n/locale_keys.g.dart';
 import '../../../../../core/assets/app_colors.dart';
+import '../../view_model/otp_verify_cubit/otp_verify_cubit.dart';
 import 'otp_form.dart';
 
 class OtpVerifyForm extends StatefulWidget {
@@ -15,6 +17,7 @@ class OtpVerifyForm extends StatefulWidget {
 class _OtpVerifyFormState extends State<OtpVerifyForm> {
   @override
   Widget build(BuildContext context) {
+    var viewModel = BlocProvider.of<OtpVerifyCubit>(context);
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: SingleChildScrollView(
@@ -44,12 +47,26 @@ class _OtpVerifyFormState extends State<OtpVerifyForm> {
                 ),
               ],
             ),
-            SizedBox(
-              height: 32.0,
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 32.0),
+              child: OtpForm(),
             ),
-            OtpForm(),
+            ValueListenableBuilder(
+              valueListenable: viewModel.valid,
+              builder: (context, value, child) => ElevatedButton(
+                onPressed: () =>
+                    viewModel.doIntent(OnCompleteCodeVerifyAction()),
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.all(14),
+                  backgroundColor: value
+                      ? AppColors.blue
+                      : AppColors.black[AppColors.colorCode30],
+                ),
+                child: Text(LocaleKeys.Authentication_SendOtp.tr()),
+              ),
+            ),
             SizedBox(
-              height: 24.0,
+              height: 16.0,
             ),
             RichText(
               textAlign: TextAlign.center,
@@ -64,11 +81,14 @@ class _OtpVerifyFormState extends State<OtpVerifyForm> {
                       color: AppColors.blue,
                       fontWeight: FontWeight.w400,
                     ),
-                    recognizer: TapGestureRecognizer()..onTap = () {},
+                    recognizer: TapGestureRecognizer()
+                      ..onTap = () {
+                        viewModel.doIntent(OtpResendAction());
+                      },
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
