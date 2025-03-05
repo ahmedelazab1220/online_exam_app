@@ -10,7 +10,7 @@ class ChangePasswordView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(LocaleKeys.Profile_ResetPassword.tr()),
+          title: Text(LocaleKeys.Profile_Change_Password.tr()),
         ),
         body: ChangePasswordForm()
     );
