@@ -2,7 +2,9 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:online_exam_app/core/di/di.dart';
 import '../../../../../core/base/base_state.dart';
+import '../../../../../core/utils/providers/user_session_provider.dart';
 import '../../../../../core/utils/validation/validator.dart';
 import '../../../../../domain/core/api_result.dart';
 import '../../../../../domain/entities/forget_password_entity.dart';
@@ -43,6 +45,8 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
 
   void _forgetPassword() async {
     if (formKey.currentState!.validate()) {
+      var userSessionProvider = getIt<UserSessionProvider>();
+      userSessionProvider.email = emailController.text;
       emit(state.copyWith(baseState: BaseLoadingState()));
       var response = await forgetPasswordUseCase(email: emailController.text);
       emit(ForgetPasswordState(baseState: BaseHideLoadingState()));
