@@ -7,6 +7,7 @@
     "EnterYourEmail": "Enter your email",
     "InvalidEmail": "This email is not valid",
     "Password": "Password",
+    "ResetPassword": "Reset password",
     "EnterYourPassword": "Enter your password",
     "ConfirmPassword": "Confirm password",
     "PasswordNotMatched": "Password not matched",

@@ -1,10 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:logger/logger.dart';
 import '../../../../core/assets/app_colors.dart';
 import '../../../../core/base/base_state.dart';
 import '../../../../core/di/di.dart';
+import '../../../../core/navigation/routes.dart';
 import '../../../../core/utils/dialogs/app_dialogs.dart';
 import '../../../../core/utils/dialogs/app_toasts.dart';
 import '../../../../core/utils/l10n/locale_keys.g.dart';
@@ -40,9 +40,7 @@ class _OtpVerifyViewState extends State<OtpVerifyView> {
             Navigator.pop(context);
           }
           if (state.baseState is BaseSuccessState) {
-            Logger().d("Navigate to ResetPasswordView");
-            // i'll uncomment it when add resetPasswordRoute
-            //Navigator.pushNamed(context, AppRoutes.resetPasswordRoute);
+            Navigator.pushNamed(context, AppRoutes.resetPasswordRoute);
           }
           if (state.baseState is BaseErrorState) {
             final errorMessage =
