@@ -10,6 +10,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:dio/dio.dart' as _i361;
+import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i558;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:logger/logger.dart' as _i974;
@@ -26,12 +27,16 @@ import '../../data/repositories/auth_repository_impl.dart' as _i895;
 import '../../domain/repositories/auth_repository.dart' as _i1073;
 import '../../domain/use_cases/forget_password_use_case.dart' as _i755;
 import '../../domain/use_cases/otp_verify_use_case.dart' as _i833;
+import '../../domain/use_cases/reset_password_use_case.dart' as _i638;
 import '../../features/forget_password/presentation/view_model/forget_password_cubit/forget_password_cubit.dart'
     as _i1009;
 import '../../features/otp_verify/presentation/view_model/otp_verify_cubit/otp_verify_cubit.dart'
     as _i897;
+import '../../features/reset_password/presentation/view_model/reset_password_cubit/reset_password_cubit.dart'
+    as _i906;
 import '../utils/app_initialzer.dart' as _i860;
 import '../utils/bloc_observer/bloc_observer_service.dart' as _i96;
+import '../utils/flutter_secure_storage_module.dart' as _i910;
 import '../utils/logger/logger_module.dart' as _i997;
 import '../utils/providers/user_session_provider.dart' as _i186;
 import '../utils/validation/validator.dart' as _i225;
@@ -47,10 +52,13 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
+    final secureStorageModule = _$SecureStorageModule();
     final loggerModule = _$LoggerModule();
     final dioModule = _$DioModule();
     gh.singleton<_i186.UserSessionProvider>(() => _i186.UserSessionProvider());
     gh.singleton<_i442.ApiManager>(() => _i442.ApiManager());
+    gh.lazySingleton<_i558.FlutterSecureStorage>(
+        () => secureStorageModule.storage);
     gh.lazySingleton<_i974.Logger>(() => loggerModule.loggerProvider);
     gh.lazySingleton<_i974.PrettyPrinter>(() => loggerModule.prettyPrinter);
     gh.lazySingleton<_i225.Validator>(() => _i225.Validator());
@@ -61,18 +69,18 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i96.BlocObserverService(gh<_i974.Logger>()));
     gh.lazySingleton<_i797.AuthRetrofitClient>(
         () => _i797.AuthRetrofitClient(gh<_i361.Dio>()));
-    gh.singleton<_i488.AuthLocalDatasource>(
-        () => _i938.AuthLocalDatasourceImpl());
     gh.factory<_i912.AuthRemoteDatasource>(() => _i498.AuthRemoteDatasourceImpl(
           gh<_i797.AuthRetrofitClient>(),
           gh<_i442.ApiManager>(),
         ));
+    gh.factory<_i488.AuthLocalDatasource>(
+        () => _i938.AuthLocalDatasourceImpl(gh<_i558.FlutterSecureStorage>()));
+    gh.lazySingleton<_i860.AppInitializer>(
+        () => _i860.AppInitializer(gh<_i186.UserSessionProvider>()));
     gh.factory<_i1073.AuthRepository>(() => _i895.AuthRepositoryImpl(
           gh<_i488.AuthLocalDatasource>(),
           gh<_i912.AuthRemoteDatasource>(),
         ));
-    gh.lazySingleton<_i860.AppInitializer>(
-        () => _i860.AppInitializer(gh<_i186.UserSessionProvider>()));
     gh.factory<_i755.ForgetPasswordUseCase>(() =>
         _i755.ForgetPasswordUseCase(repository: gh<_i1073.AuthRepository>()));
     gh.factory<_i833.OtpVerifyUseCase>(
@@ -81,13 +89,21 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i755.ForgetPasswordUseCase>(),
           gh<_i225.Validator>(),
         ));
+    gh.factory<_i638.ResetPasswordUseCase>(
+        () => _i638.ResetPasswordUseCase(gh<_i1073.AuthRepository>()));
     gh.factory<_i897.OtpVerifyCubit>(() => _i897.OtpVerifyCubit(
           gh<_i833.OtpVerifyUseCase>(),
           gh<_i755.ForgetPasswordUseCase>(),
         ));
+    gh.factory<_i906.ResetPasswordCubit>(() => _i906.ResetPasswordCubit(
+          gh<_i638.ResetPasswordUseCase>(),
+          gh<_i225.Validator>(),
+        ));
     return this;
   }
 }
+
+class _$SecureStorageModule extends _i910.SecureStorageModule {}
 
 class _$LoggerModule extends _i997.LoggerModule {}
 

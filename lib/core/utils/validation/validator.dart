@@ -16,4 +16,22 @@ class Validator {
     }
     return null;
   }
+
+  String? validatePassword(String input) {
+    if (input.isEmpty) {
+      return LocaleKeys.Error_PasswordCannotBeEmpty.tr();
+    } else if (!RegExp(
+            r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$')
+        .hasMatch(input)) {
+      return LocaleKeys.Authentication_PasswordRequirements.tr();
+    }
+    return null;
+  }
+
+  String? validateConfirmPassword(String input, String password) {
+    if (input.isEmpty || input != password) {
+      return LocaleKeys.Error_ConfirmPasswordMustMatch.tr();
+    }
+    return null;
+  }
 }

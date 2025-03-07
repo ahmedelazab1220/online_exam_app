@@ -1,4 +1,6 @@
 import 'package:injectable/injectable.dart';
+import 'package:online_exam_app/data/api/models/auth/reset_password/request/reset_password_request_dto.dart';
+import 'package:online_exam_app/domain/entities/reset_password_entity.dart';
 import '../../../domain/core/api_result.dart';
 import '../../../domain/entities/forget_password_entity.dart';
 import '../../api/api_manager.dart';
@@ -34,6 +36,20 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
         var response = await authRetrofitClient
             .verifyOtp(VerifyOtpCodeRequestDto(otpCode: otpCode));
         return response;
+      },
+    );
+    return response;
+  }
+
+  @override
+  Future<Result<ResetPasswordEntity>> resetPassword(
+      ResetPasswordRequestDto resetPasswordRequestDto) async {
+    var response = await apiManager.execute<ResetPasswordEntity>(
+      () async {
+        var response = await authRetrofitClient.resetPassword(
+          resetPasswordRequestDto,
+        );
+        return response.toDomain();
       },
     );
     return response;
