@@ -4,6 +4,8 @@ import 'package:retrofit/retrofit.dart';
 import '../api_constants.dart';
 import '../models/auth/forget_password/request/forget_password_request_dto.dart';
 import '../models/auth/forget_password/response/forget_password_response_dto.dart';
+import '../models/auth/reset_password/request/reset_password_request_dto.dart';
+import '../models/auth/reset_password/response/reset_password_response_dto.dart';
 import '../models/auth/verify_otp_code/request/verify_otp_code_request_dto.dart';
 import '../models/auth/verify_otp_code/response/verify_otp_code_response_dto.dart';
 
@@ -23,5 +25,10 @@ abstract class AuthRetrofitClient {
   @POST(ApiConstants.verifyOtpCodeRoute)
   Future<VerifyOtpCodeResponseDto> verifyOtp(
     @Body() VerifyOtpCodeRequestDto request,
+  );
+
+  @PUT(ApiConstants.resetPasswordRoute)
+  Future<ResetPasswordResponseDto> resetPassword(
+    @Body() ResetPasswordRequestDto request,
   );
 }

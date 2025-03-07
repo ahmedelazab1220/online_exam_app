@@ -1,16 +1,21 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/assets/app_colors.dart';
 import '../../../../../core/utils/l10n/locale_keys.g.dart';
+import '../../view_model/reset_password_cubit/reset_password_cubit.dart';
 
 class ResetPasswordForm extends StatelessWidget {
   const ResetPasswordForm({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var viewModel = BlocProvider.of<ResetPasswordCubit>(context);
     return SingleChildScrollView(
       child: Form(
+        onChanged: () => viewModel.doIntent(FormDataChangedAction()),
+        key: viewModel.formKey,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -44,6 +49,9 @@ class ResetPasswordForm extends StatelessWidget {
               ),
               TextFormField(
                 autovalidateMode: AutovalidateMode.onUserInteraction,
+                controller: viewModel.passwordController,
+                validator: (value) =>
+                    viewModel.validator.validatePassword(value ?? ""),
                 decoration: InputDecoration(
                   labelText: LocaleKeys.Authentication_NewPassword.tr(),
                   hintText: LocaleKeys.Authentication_EnterYourPassword.tr(),
@@ -56,6 +64,12 @@ class ResetPasswordForm extends StatelessWidget {
               ),
               TextFormField(
                 autovalidateMode: AutovalidateMode.onUserInteraction,
+                controller: viewModel.confirmPasswordController,
+                validator: (value) =>
+                    viewModel.validator.validateConfirmPassword(
+                  value ?? "",
+                  viewModel.passwordController.text,
+                ),
                 decoration: InputDecoration(
                   labelText: LocaleKeys.Authentication_ConfirmPassword.tr(),
                   hintText: LocaleKeys.Authentication_ConfirmPassword.tr(),
@@ -66,13 +80,19 @@ class ResetPasswordForm extends StatelessWidget {
               SizedBox(
                 height: 48.0,
               ),
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.all(14),
-                  backgroundColor: AppColors.blue,
+              ValueListenableBuilder(
+                valueListenable: viewModel.valid,
+                builder: (context, value, child) => ElevatedButton(
+                  onPressed: () =>
+                      viewModel.doIntent(ResetPasswordSubmittedAction()),
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.all(14),
+                    backgroundColor: value
+                        ? AppColors.blue
+                        : AppColors.black[AppColors.colorCode30],
+                  ),
+                  child: Text(LocaleKeys.Authentication_Continue.tr()),
                 ),
-                child: Text(LocaleKeys.Authentication_Continue.tr()),
               ),
             ],
           ),
