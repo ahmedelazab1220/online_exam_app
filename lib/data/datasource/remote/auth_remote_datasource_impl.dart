@@ -1,10 +1,11 @@
 import 'package:injectable/injectable.dart';
-
 import '../../../domain/core/api_result.dart';
 import '../../../domain/entities/forget_password_entity.dart';
 import '../../api/api_manager.dart';
 import '../../api/auth/auth_retrofit_client.dart';
 import '../../api/models/auth/forget_password/request/forget_password_request_dto.dart';
+import '../../api/models/auth/verify_otp_code/request/verify_otp_code_request_dto.dart';
+import '../../api/models/auth/verify_otp_code/response/verify_otp_code_response_dto.dart';
 import '../contract/auth_remote_datasource.dart';
 
 @Injectable(as: AuthRemoteDatasource)
@@ -21,6 +22,18 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
         var response = await authRetrofitClient
             .forgetPassword(ForgetPasswordRequestDto(email: email));
         return response.toDomain();
+      },
+    );
+    return response;
+  }
+
+  @override
+  Future<Result<VerifyOtpCodeResponseDto>> verifyOtp(String otpCode) async {
+    var response = await apiManager.execute<VerifyOtpCodeResponseDto>(
+      () async {
+        var response = await authRetrofitClient
+            .verifyOtp(VerifyOtpCodeRequestDto(otpCode: otpCode));
+        return response;
       },
     );
     return response;

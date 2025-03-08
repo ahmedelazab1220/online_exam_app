@@ -9,4 +9,5 @@ class AppIcons{
   static const resultIcon='assets/svgs/result_icon.svg';
   static const unSelectedResultIcon='assets/svgs/unselected_result_icon.svg';
   static const searchIcon='assets/svgs/search.svg';
+  static const errorIcon = 'assets/svgs/error_icon.svg';
 }
