@@ -38,7 +38,7 @@ class OnlineExamApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             routes: AppRoutes.routes,
             theme: AppTheme.appTheme,
-            initialRoute: AppRoutes.loginRoute,
+            initialRoute: AppRoutes.examRoute,
           ),
         );
       },
