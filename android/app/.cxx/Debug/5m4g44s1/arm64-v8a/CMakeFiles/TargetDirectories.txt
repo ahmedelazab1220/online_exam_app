@@ -1,0 +1,2 @@
+C:/Users/Lenovo/Documents/Elevate/online_exam_app/android/app/.cxx/Debug/5m4g44s1/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/Lenovo/Documents/Elevate/online_exam_app/android/app/.cxx/Debug/5m4g44s1/arm64-v8a/CMakeFiles/rebuild_cache.dir

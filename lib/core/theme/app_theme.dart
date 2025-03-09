@@ -136,12 +136,17 @@ class AppTheme {
       ),
     ),
     navigationBarTheme: NavigationBarThemeData(
+      labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>(
+            (Set<WidgetState> states) {
+          if (states.contains(WidgetState.selected)) {
+            return TextStyle(color: AppColors.blue, fontWeight: FontWeight.w600);
+          }
+          return TextStyle(color: AppColors.black[30], fontWeight: FontWeight.w500);
+        },
+      ),
       elevation: 0,
       backgroundColor: AppColors.lightBlue,
       surfaceTintColor: AppColors.blue,
-      labelTextStyle: WidgetStateProperty.all(
-        const TextStyle(color: AppColors.blue),
-      ),
       iconTheme: WidgetStateProperty.all(
         const IconThemeData(color: AppColors.blue),
       ),

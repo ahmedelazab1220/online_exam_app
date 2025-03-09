@@ -1,0 +1,5 @@
+abstract class BottomNavigationBarStates{}
+
+class BottomNavigationBarInitialState extends BottomNavigationBarStates{}
+
+class ChangeBottomNavigationIndexState extends BottomNavigationBarStates{}

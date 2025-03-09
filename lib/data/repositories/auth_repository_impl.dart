@@ -1,4 +1,5 @@
 import 'package:injectable/injectable.dart';
+import 'package:online_exam_app/data/api/models/auth/verify_otp_code/response/verify_otp_code_response_dto.dart';
 
 import '../../domain/core/api_result.dart';
 import '../../domain/entities/forget_password_entity.dart';
@@ -18,6 +19,14 @@ class AuthRepositoryImpl implements AuthRepository {
     required String email,
   }) async {
     var response = await authRemoteDatasource.forgetPassword(email);
+    return response;
+  }
+
+  @override
+  Future<Result<VerifyOtpCodeResponseDto>> verifyOtpCode({
+    required String otpCode,
+  }) async {
+    var response = await authRemoteDatasource.verifyOtp(otpCode);
     return response;
   }
 }
