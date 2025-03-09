@@ -123,6 +123,18 @@ class MockValidator extends _i1.Mock implements _i11.Validator {
   String? emailValidation(String? input) =>
       (super.noSuchMethod(Invocation.method(#emailValidation, [input]))
           as String?);
+
+  @override
+  String? validatePassword(String? input) =>
+      (super.noSuchMethod(Invocation.method(#validatePassword, [input]))
+          as String?);
+
+  @override
+  String? validateConfirmPassword(String? input, String? password) =>
+      (super.noSuchMethod(
+            Invocation.method(#validateConfirmPassword, [input, password]),
+          )
+          as String?);
 }
 
 /// A class which mocks [GlobalKey].
