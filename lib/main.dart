@@ -5,6 +5,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:online_exam_app/core/di/di.dart';
 import 'package:online_exam_app/core/theme/app_theme.dart';
 import 'package:online_exam_app/core/utils/bloc_observer/bloc_observer_service.dart';
+import 'package:online_exam_app/data/local_database/models/user/local_user.dart';
 import 'package:provider/provider.dart';
 import 'core/navigation/routes.dart';
 import 'core/utils/providers/user_session_provider.dart';
@@ -12,7 +13,8 @@ import 'core/utils/providers/user_session_provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
-  configureDependencies();
+  Hive.registerAdapter(LocalUserAdapter());
+  await configureDependencies();
   await EasyLocalization.ensureInitialized();
   Bloc.observer = BlocObserverService();
   runApp(
