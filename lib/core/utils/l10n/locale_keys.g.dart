@@ -77,12 +77,16 @@ abstract class  LocaleKeys {
   static const Subjects_YourScore = 'Subjects.YourScore';
   static const Subjects_ViewScore = 'Subjects.ViewScore';
   static const Subjects = 'Subjects';
+  static const Result_Result = 'Result.Result';
   static const Result_CorrectedAnswersIn25Min = 'Result.CorrectedAnswersIn25Min';
   static const Result_Algebra = 'Result.Algebra';
   static const Result = 'Result';
-  static const Result_Result = 'Result.Result';
   static const Error_EmailAlreadyExists = 'Error.EmailAlreadyExists';
   static const Error_PasswordCannotBeEmpty = 'Error.PasswordCannotBeEmpty';
+  static const Error_NameCannotBeEmpty = 'Error.NameCannotBeEmpty';
+  static const Error_PhoneNumberCannotBeEmpty = 'Error.PhoneNumberCannotBeEmpty';
+  static const Error_InvalidPhoneNumber = 'Error.InvalidPhoneNumber';
+  static const Error_InvalidName = 'Error.InvalidName';
   static const Error_ConfirmPasswordMustMatch = 'Error.ConfirmPasswordMustMatch';
   static const Error_OtpCodeIsInvalidOrExpired = 'Error.OtpCodeIsInvalidOrExpired';
   static const Error_PasswordEnterAValidPassword = 'Error.PasswordEnterAValidPassword';

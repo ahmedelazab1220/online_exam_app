@@ -85,6 +85,10 @@
   "Error": {
     "EmailAlreadyExists": "This email already exists.",
     "PasswordCannotBeEmpty": "Password can't be empty.",
+    "NameCannotBeEmpty": "Name can't be empty.",
+    "InvalidName": "Please enter a valid name without special characters.",
+    "PhoneNumberCannotBeEmpty": "Phone number can't be empty.",
+    "InvalidPhoneNumber": "Invalid number format. Ensure it starts with 010, 011, 012, or 015 and has 11 digits.",
     "ConfirmPasswordMustMatch": "Confirm password must match password.",
     "OtpCodeIsInvalidOrExpired": "Reset code is invalid or has expired",
     "PasswordEnterAValidPassword": "Password must contain at least 8 characters and include One uppercase letter (A-Z), One lowercase letter (a-z),One number (0-9), And one special character (#?!@$%^&*-).",

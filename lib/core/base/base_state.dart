@@ -16,7 +16,7 @@ class BaseNavigationState<T> extends BaseState {
   T? arguments;
   String route;
 
-  BaseNavigationState(this.route, this.arguments);
+  BaseNavigationState(this.route, [this.arguments]);
 }
 
 class BaseErrorState extends BaseState {
