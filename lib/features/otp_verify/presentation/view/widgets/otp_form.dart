@@ -14,7 +14,7 @@ class OtpForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var viewModel = BlocProvider.of<OtpVerifyCubit>(context);
+    final viewModel = BlocProvider.of<OtpVerifyCubit>(context);
     return BlocBuilder<OtpVerifyCubit, OtpVerifyState>(
       builder: (context, state) {
         return Form(

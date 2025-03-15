@@ -15,11 +15,11 @@ class AppRoutes {
   static const String resetPasswordRoute = "/resetPassword";
 
   static Map<String, Widget Function(dynamic)> routes = {
-    loginRoute: (context) => LoginView(),
-    signUpRoute: (context) => SignUpView(),
-    forgetPasswordRoute: (context) => ForgetPasswordView(),
-    bottomNavBar: (context) => BottomNavigationBarView(),
-    otpVerifyRoute: (context) => OtpVerifyView(),
-    resetPasswordRoute: (context) => ResetPasswordView(),
+    loginRoute: (context) => const LoginView(),
+    signUpRoute: (context) => const SignUpView(),
+    forgetPasswordRoute: (context) => const ForgetPasswordView(),
+    bottomNavBar: (context) => const BottomNavigationBarView(),
+    otpVerifyRoute: (context) => const OtpVerifyView(),
+    resetPasswordRoute: (context) => const ResetPasswordView(),
   };
 }

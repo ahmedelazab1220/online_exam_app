@@ -70,8 +70,8 @@ class OtpVerifyCubit extends Cubit<OtpVerifyState> {
 
   void _resenOtp() async {
     emit(state.copyWith(otpResendState: BaseLoadingState()));
-    var userSessionProvider = getIt<UserSessionProvider>();
-    var response =
+    final userSessionProvider = getIt<UserSessionProvider>();
+    final response =
         await forgetPasswordUseCase(email: userSessionProvider.email);
     emit(state.copyWith(otpResendState: BaseHideLoadingState()));
     switch (response) {
@@ -94,9 +94,9 @@ class OtpVerifyCubit extends Cubit<OtpVerifyState> {
 
   void _verifyOtp() async {
     if (valid.value) {
-      var enteredOtp = controllers.map((e) => e.text).join();
+      final enteredOtp = controllers.map((e) => e.text).join();
       emit(state.copyWith(baseState: BaseLoadingState()));
-      var response = await otpVerifyUseCase(otpCode: enteredOtp);
+      final response = await otpVerifyUseCase(otpCode: enteredOtp);
       emit(OtpVerifyState(baseState: BaseHideLoadingState()));
       switch (response) {
         case SuccessResult<VerifyOtpCodeResponseDto>():

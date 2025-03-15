@@ -18,8 +18,8 @@ class BottomNavigationBarCubit extends Cubit<BottomNavigationBarStates> {
   }
 
   List<Widget> screens = [
-    ExploreView(),
-    ResultView(),
-    ProfileView()
+    const ExploreView(),
+    const ResultView(),
+    const ProfileView()
   ];
 }

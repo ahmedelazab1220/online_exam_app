@@ -49,7 +49,7 @@ class _ResetPasswordViewState extends State<ResetPasswordView> {
           appBar: AppBar(
             title: Text(LocaleKeys.Authentication_Password.tr()),
           ),
-          body: ResetPasswordForm(),
+          body: const ResetPasswordForm(),
         ),
       ),
     );
