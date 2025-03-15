@@ -8,7 +8,6 @@ abstract class HiveStorageModule {
   @preResolve
   @Named(Constants.userBox)
   Future<Box<LocalUser>> get userBox async {
-    Hive.registerAdapter(LocalUserAdapter());
     return await Hive.openBox<LocalUser>(Constants.userBox);
   }
 }

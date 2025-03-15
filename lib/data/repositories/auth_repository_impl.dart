@@ -8,7 +8,6 @@ import '../../domain/entities/forget_password_entity.dart';
 import '../../domain/repositories/auth_repository.dart';
 import '../api/models/auth/reset_password/request/reset_password_request_dto.dart';
 import '../api/models/auth/signup/request/signup_request_dto.dart';
-import '../api/models/auth/signup/response/signup_response_dto.dart';
 import '../datasource/contract/auth_local_datasource.dart';
 import '../datasource/contract/auth_remote_datasource.dart';
 
@@ -58,11 +57,6 @@ class AuthRepositoryImpl implements AuthRepository {
   }) async {
     final response = await authRemoteDatasource
         .signup(SignupRequestDto.fromDomain(signupUserEntity));
-    if (response is SuccessResult<SignupResponseDto>) {
-      await authLocalDatasource.saveToken(
-          Constants.token, response.data.token!);
-      await authLocalDatasource.saveUser(response.data.userDto!);
-    }
     return response;
   }
 }
