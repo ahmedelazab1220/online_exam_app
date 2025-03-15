@@ -50,8 +50,8 @@ class ResetPasswordCubit extends Cubit<ResetPasswordState> {
   void _resetPassword() async {
     if (formKey.currentState!.validate()) {
       emit(state.copyWith(baseState: BaseLoadingState()));
-      var userSessionProvider = getIt<UserSessionProvider>();
-      var response = await resetPasswordUseCase(
+      final userSessionProvider = getIt<UserSessionProvider>();
+      final response = await resetPasswordUseCase(
         email: userSessionProvider.email,
         newPassword: passwordController.text,
       );

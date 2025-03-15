@@ -11,7 +11,7 @@ class ResetPasswordForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var viewModel = BlocProvider.of<ResetPasswordCubit>(context);
+    final viewModel = BlocProvider.of<ResetPasswordCubit>(context);
     return SingleChildScrollView(
       child: Form(
         onChanged: () => viewModel.doIntent(FormDataChangedAction()),
@@ -28,7 +28,7 @@ class ResetPasswordForm extends StatelessWidget {
                     ),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16.0,
               ),
               Row(
@@ -44,7 +44,7 @@ class ResetPasswordForm extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 32.0,
               ),
               TextFormField(
@@ -59,7 +59,7 @@ class ResetPasswordForm extends StatelessWidget {
                 onTapOutside: (_) =>
                     FocusManager.instance.primaryFocus?.unfocus(),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 24.0,
               ),
               TextFormField(
@@ -77,7 +77,7 @@ class ResetPasswordForm extends StatelessWidget {
                 onTapOutside: (_) =>
                     FocusManager.instance.primaryFocus?.unfocus(),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 48.0,
               ),
               ValueListenableBuilder(

@@ -45,10 +45,10 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
 
   void _forgetPassword() async {
     if (formKey.currentState!.validate()) {
-      var userSessionProvider = getIt<UserSessionProvider>();
+      final userSessionProvider = getIt<UserSessionProvider>();
       userSessionProvider.email = emailController.text;
       emit(state.copyWith(baseState: BaseLoadingState()));
-      var response = await forgetPasswordUseCase(email: emailController.text);
+      final response = await forgetPasswordUseCase(email: emailController.text);
       emit(ForgetPasswordState(baseState: BaseHideLoadingState()));
       switch (response) {
         case SuccessResult<ForgetPasswordEntity>():

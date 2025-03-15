@@ -11,7 +11,7 @@ class LoginForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Form(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -19,38 +19,38 @@ class LoginForm extends StatelessWidget {
               TextFormField(
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
                   labelText: LocaleKeys.Authentication_Email.tr(),
                   hintText: LocaleKeys.Authentication_EnterYourEmail.tr(),
                 ),
                 onTapOutside: (_) =>
                     FocusManager.instance.primaryFocus?.unfocus(),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               TextFormField(
                 keyboardType: TextInputType.visiblePassword,
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
                   labelText: LocaleKeys.Authentication_Password.tr(),
                   hintText: LocaleKeys.Authentication_EnterYourPassword.tr(),
                 ),
                 onTapOutside: (_) =>
                     FocusManager.instance.primaryFocus?.unfocus(),
               ),
-              RememberMeAndForgetPasswordWidget(),
-              SizedBox(
+              const RememberMeAndForgetPasswordWidget(),
+              const SizedBox(
                 height: 48.0,
               ),
               ElevatedButton(
                 onPressed: () {},
                 child: Text(LocaleKeys.Authentication_Login.tr()),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16.0,
               ),
-              DonotHaveAnAccountWidget(),
+              const DonotHaveAnAccountWidget(),
             ],
           ),
         ),

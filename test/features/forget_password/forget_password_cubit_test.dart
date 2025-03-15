@@ -56,7 +56,7 @@ void main() {
         path: 'assets/translations',
         fallbackLocale: const Locale('en'),
         startLocale: const Locale('en'),
-        child: OnlineExamApp(),
+        child: const OnlineExamApp(),
       ),
     );
   }
@@ -74,7 +74,7 @@ void main() {
             .thenReturn(expectedErrorMessage);
 
         // Act
-        var result = forgetPasswordCubit.validator
+        final result = forgetPasswordCubit.validator
             .validateEmail(forgetPasswordCubit.emailController.text);
 
         // Assert
@@ -94,7 +94,7 @@ void main() {
             .thenReturn(expectedErrorMessage);
 
         // Act
-        var result = forgetPasswordCubit.validator
+        final result = forgetPasswordCubit.validator
             .validateEmail(forgetPasswordCubit.emailController.text);
 
         // Assert
@@ -111,7 +111,7 @@ void main() {
         when(mockValidator.validateEmail(validEmail)).thenReturn(null);
 
         // Act
-        var result = forgetPasswordCubit.validator
+        final result = forgetPasswordCubit.validator
             .validateEmail(forgetPasswordCubit.emailController.text);
 
         // Assert

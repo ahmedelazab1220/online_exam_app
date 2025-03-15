@@ -17,7 +17,7 @@ class OtpVerifyForm extends StatefulWidget {
 class _OtpVerifyFormState extends State<OtpVerifyForm> {
   @override
   Widget build(BuildContext context) {
-    var viewModel = BlocProvider.of<OtpVerifyCubit>(context);
+    final viewModel = BlocProvider.of<OtpVerifyCubit>(context);
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: SingleChildScrollView(
@@ -31,7 +31,7 @@ class _OtpVerifyFormState extends State<OtpVerifyForm> {
                   ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(
+            const SizedBox(
               height: 16.0,
             ),
             Row(
@@ -47,8 +47,8 @@ class _OtpVerifyFormState extends State<OtpVerifyForm> {
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 32.0),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 32.0),
               child: OtpForm(),
             ),
             ValueListenableBuilder(
@@ -65,7 +65,7 @@ class _OtpVerifyFormState extends State<OtpVerifyForm> {
                 child: Text(LocaleKeys.Authentication_SendOtp.tr()),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 16.0,
             ),
             RichText(
@@ -76,7 +76,7 @@ class _OtpVerifyFormState extends State<OtpVerifyForm> {
                 children: [
                   TextSpan(
                     text: LocaleKeys.Authentication_Resend.tr(),
-                    style: TextStyle(
+                    style: const TextStyle(
                       decoration: TextDecoration.underline,
                       color: AppColors.blue,
                       fontWeight: FontWeight.w400,

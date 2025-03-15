@@ -72,7 +72,7 @@ class _OtpVerifyViewState extends State<OtpVerifyView> {
           appBar: AppBar(
             title: Text(LocaleKeys.Authentication_Password.tr()),
           ),
-          body: OtpVerifyForm(),
+          body: const OtpVerifyForm(),
         ),
       ),
     );

@@ -54,7 +54,7 @@ class _ForgetPasswordViewState extends State<ForgetPasswordView> {
           appBar: AppBar(
             title: Text(LocaleKeys.Authentication_Password.tr()),
           ),
-          body: ForgetPasswordForm(),
+          body: const ForgetPasswordForm(),
         ),
       ),
     );

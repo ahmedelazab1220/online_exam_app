@@ -64,7 +64,7 @@ class SignupCubit extends Cubit<SignupState> {
   void _signup() async {
     if (formKey.currentState!.validate()) {
       emit(state.copyWith(baseState: BaseLoadingState()));
-      var response = await signupUseCase.call(
+      final response = await signupUseCase.call(
           signupUserEntity: SignupUserEntity(
         email: emailController.text,
         password: passwordController.text,
