@@ -54,7 +54,7 @@ class ForgetPasswordForm extends StatelessWidget {
               TextFormField(
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 validator: (value) =>
-                    viewModel.validator.emailValidation(value ?? ""),
+                    viewModel.validator.validateEmail(value ?? ""),
                 keyboardType: TextInputType.emailAddress,
                 controller: viewModel.emailController,
                 decoration: InputDecoration(

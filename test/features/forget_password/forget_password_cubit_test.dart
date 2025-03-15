@@ -70,12 +70,12 @@ void main() {
         // Arrange
         forgetPasswordCubit.emailController.text = emptyEmail;
         final expectedErrorMessage = LocaleKeys.Error_EmailCannotBeEmpty.tr();
-        when(mockValidator.emailValidation(emptyEmail))
+        when(mockValidator.validateEmail(emptyEmail))
             .thenReturn(expectedErrorMessage);
 
         // Act
         var result = forgetPasswordCubit.validator
-            .emailValidation(forgetPasswordCubit.emailController.text);
+            .validateEmail(forgetPasswordCubit.emailController.text);
 
         // Assert
         expect(result, expectedErrorMessage);
@@ -90,12 +90,12 @@ void main() {
         // Arrange
         forgetPasswordCubit.emailController.text = invalidEmail;
         final expectedErrorMessage = LocaleKeys.Error_EnterAValidEmail.tr();
-        when(mockValidator.emailValidation(invalidEmail))
+        when(mockValidator.validateEmail(invalidEmail))
             .thenReturn(expectedErrorMessage);
 
         // Act
         var result = forgetPasswordCubit.validator
-            .emailValidation(forgetPasswordCubit.emailController.text);
+            .validateEmail(forgetPasswordCubit.emailController.text);
 
         // Assert
         expect(result, expectedErrorMessage);
@@ -108,11 +108,11 @@ void main() {
 
         // Arrange
         forgetPasswordCubit.emailController.text = validEmail;
-        when(mockValidator.emailValidation(validEmail)).thenReturn(null);
+        when(mockValidator.validateEmail(validEmail)).thenReturn(null);
 
         // Act
         var result = forgetPasswordCubit.validator
-            .emailValidation(forgetPasswordCubit.emailController.text);
+            .validateEmail(forgetPasswordCubit.emailController.text);
 
         // Assert
         expect(result, null);
