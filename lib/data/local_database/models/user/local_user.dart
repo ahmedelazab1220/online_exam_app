@@ -1,7 +1,5 @@
 import 'package:hive/hive.dart';
-import 'package:online_exam_app/domain/entities/user_entity.dart';
-
-import '../../../api/models/auth/user/user_dto.dart';
+import 'package:online_exam_app/domain/entities/auth/user_entity.dart';
 
 part 'local_user.g.dart';
 
@@ -38,22 +36,23 @@ class LocalUser {
     required this.id,
   });
 
-  factory LocalUser.fromDataSource(UserDto userDto) {
+  factory LocalUser.fromDataSource(UserEntity userEntity) {
     return LocalUser(
-      email: userDto.email,
-      firstName: userDto.firstName,
-      lastName: userDto.lastName,
-      phone: userDto.phone,
-      username: userDto.username,
-      createdAt: userDto.createdAt,
-      isVerified: userDto.isVerified,
-      role: userDto.role,
-      id: userDto.id,
+      email: userEntity.email,
+      firstName: userEntity.firstName,
+      lastName: userEntity.lastName,
+      phone: userEntity.phone,
+      username: userEntity.username,
+      createdAt: userEntity.createdAt,
+      isVerified: userEntity.isVerified,
+      role: userEntity.role,
+      id: userEntity.id,
     );
   }
 
   UserEntity toDomain() {
     return UserEntity(
+      id: id,
       email: email,
       firstName: firstName,
       lastName: lastName,

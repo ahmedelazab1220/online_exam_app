@@ -4,6 +4,8 @@ import 'package:retrofit/retrofit.dart';
 import '../api_constants.dart';
 import '../models/auth/forget_password/request/forget_password_request_dto.dart';
 import '../models/auth/forget_password/response/forget_password_response_dto.dart';
+import '../models/auth/login/request/login_user_request_dto.dart';
+import '../models/auth/login/response/login_user_response_dto.dart';
 import '../models/auth/reset_password/request/reset_password_request_dto.dart';
 import '../models/auth/reset_password/response/reset_password_response_dto.dart';
 import '../models/auth/signup/request/signup_request_dto.dart';
@@ -37,5 +39,10 @@ abstract class AuthRetrofitClient {
   @POST(ApiConstants.signupRoute)
   Future<SignupResponseDto> signup(
     @Body() SignupRequestDto request,
+  );
+
+  @POST(ApiConstants.loginRoute)
+  Future<LoginUserResponseDto> login(
+    @Body() LoginUserRequestDto request,
   );
 }

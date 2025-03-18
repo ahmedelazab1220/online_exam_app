@@ -1,8 +1,8 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
-import 'package:online_exam_app/data/api/models/auth/user/user_dto.dart';
 import 'package:online_exam_app/data/local_database/models/user/local_user.dart';
 import 'package:online_exam_app/data/local_database/user_local_database/user_local_database.dart';
+import 'package:online_exam_app/domain/entities/auth/user_entity.dart';
 
 import '../contract/auth_local_datasource.dart';
 
@@ -22,9 +22,9 @@ class AuthLocalDatasourceImpl implements AuthLocalDatasource {
   }
 
   @override
-  Future<void> saveUser(UserDto? userDto) async {
-    if (userDto != null) {
-      usersLocalDatabase.addUser(LocalUser.fromDataSource(userDto));
+  Future<void> saveUser(UserEntity? userEntity) async {
+    if (userEntity != null) {
+      usersLocalDatabase.addUser(LocalUser.fromDataSource(userEntity));
     }
   }
 

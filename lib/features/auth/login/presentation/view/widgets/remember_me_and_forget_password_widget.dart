@@ -1,8 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../core/assets/app_colors.dart';
-import '../../../../../../core/navigation/routes.dart';
 import '../../../../../../core/utils/l10n/locale_keys.g.dart';
+import '../../view_model/login_cubit/login_cubit.dart';
 
 class RememberMeAndForgetPasswordWidget extends StatefulWidget {
   const RememberMeAndForgetPasswordWidget({super.key});
@@ -18,6 +19,7 @@ class _RememberMeAndForgetPasswordWidgetState
 
   @override
   Widget build(BuildContext context) {
+    final viewModel = BlocProvider.of<LoginCubit>(context);
     return Row(
       children: [
         Checkbox(
@@ -34,8 +36,7 @@ class _RememberMeAndForgetPasswordWidgetState
         const Spacer(),
         TextButton(
           onPressed: () {
-            // just for test when add viewModel i'll remove it.
-            Navigator.pushNamed(context, AppRoutes.forgetPasswordRoute);
+            viewModel.doIntent(NavigateToForgetPasswordScreenAction());
           },
           style: TextButton.styleFrom(
             foregroundColor: AppColors.black,

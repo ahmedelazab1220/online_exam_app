@@ -7,7 +7,7 @@ import '../../../../../core/di/di.dart';
 import '../../../../../core/utils/providers/user_session_provider.dart';
 import '../../../../../data/api/models/auth/verify_otp_code/response/verify_otp_code_response_dto.dart';
 import '../../../../../domain/core/api_result.dart';
-import '../../../../../domain/entities/forget_password_entity.dart';
+import '../../../../../domain/entities/auth/forget_password_entity.dart';
 import '../../../../../domain/use_cases/forget_password_use_case.dart';
 import '../../../../../domain/use_cases/otp_verify_use_case.dart';
 part 'otp_verify_state.dart';

@@ -13,7 +13,7 @@ import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i10;
 import 'package:online_exam_app/core/utils/validation/validator.dart' as _i11;
 import 'package:online_exam_app/domain/core/api_result.dart' as _i8;
-import 'package:online_exam_app/domain/entities/forget_password_entity.dart'
+import 'package:online_exam_app/domain/entities/auth/forget_password_entity.dart'
     as _i9;
 import 'package:online_exam_app/domain/repositories/auth_repository.dart'
     as _i2;

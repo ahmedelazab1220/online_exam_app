@@ -1,10 +1,13 @@
 import 'package:injectable/injectable.dart';
 import 'package:online_exam_app/core/utils/constants.dart';
+import 'package:online_exam_app/data/api/models/auth/login/request/login_user_request_dto.dart';
 import 'package:online_exam_app/data/api/models/auth/verify_otp_code/response/verify_otp_code_response_dto.dart';
-import 'package:online_exam_app/domain/entities/reset_password_entity.dart';
-import 'package:online_exam_app/domain/entities/signup_user_entity.dart';
+import 'package:online_exam_app/domain/entities/auth/authentication_response.dart';
+import 'package:online_exam_app/domain/entities/auth/login_user_entity.dart';
+import 'package:online_exam_app/domain/entities/auth/reset_password_entity.dart';
+import 'package:online_exam_app/domain/entities/auth/signup_user_entity.dart';
 import '../../domain/core/api_result.dart';
-import '../../domain/entities/forget_password_entity.dart';
+import '../../domain/entities/auth/forget_password_entity.dart';
 import '../../domain/repositories/auth_repository.dart';
 import '../api/models/auth/reset_password/request/reset_password_request_dto.dart';
 import '../api/models/auth/signup/request/signup_request_dto.dart';
@@ -57,6 +60,25 @@ class AuthRepositoryImpl implements AuthRepository {
   }) async {
     final response = await authRemoteDatasource
         .signup(SignupRequestDto.fromDomain(signupUserEntity));
+    return response;
+  }
+
+  @override
+  Future<Result<AuthenticationResponse>> login(
+      {required LoginUserEntity loginUserEntity}) async {
+    final response = await authRemoteDatasource
+        .login(LoginUserRequestDto.fromDomain(loginUserEntity));
+
+    if (response is SuccessResult<AuthenticationResponse>) {
+      if (response.data.token != null) {
+        await authLocalDatasource.saveToken(
+            Constants.token, response.data.token!);
+      }
+      if (response.data.user != null) {
+        await authLocalDatasource.saveUser(response.data.user!);
+      }
+    }
+
     return response;
   }
 }
