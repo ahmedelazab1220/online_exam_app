@@ -1,4 +1,5 @@
 class UserEntity {
+  final String? id;
   final String? email;
   final String? firstName;
   final String? lastName;
@@ -9,13 +10,14 @@ class UserEntity {
   final bool? isVerified;
 
   UserEntity({
-    required this.email,
-    required this.firstName,
-    required this.lastName,
-    required this.phone,
-    required this.username,
-    required this.createdAt,
-    required this.isVerified,
-    required this.role,
+    this.id,
+    this.email,
+    this.firstName,
+    this.lastName,
+    this.phone,
+    this.username,
+    this.createdAt,
+    this.isVerified,
+    this.role,
   });
 }

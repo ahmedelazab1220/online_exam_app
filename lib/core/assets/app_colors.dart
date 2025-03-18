@@ -20,36 +20,30 @@ class AppColors {
   static const Color paleBlue = Color(0xFFDFE7F7);
   static const Color lightGreen = Color(0xFFCAF9CC);
   static const Color lightRed = Color(0xFFF8D2D2);
-  static const MaterialColor blue = MaterialColor(
-    0xFF02369C,
-    <int, Color>{
-      baseColor: Color(0xFFCCD7EB),
-      colorCode10: Color(0xFFABBCDE),
-      colorCode20: Color(0xFF809ACD),
-      colorCode30: Color(0xFF5679BD),
-      colorCode40: Color(0xFF2C58AC),
-      colorCode50: Color(0xFF2C58AC),
-      colorCode60: Color(0xFF022D82),
-      colorCode70: Color(0xFF012468),
-      colorCode80: Color(0xFF011B4E),
-      colorCode90: Color(0xFF011234),
-      colorCode100: Color(0xFF000B1F),
-    },
-  );
-  static const MaterialColor black = MaterialColor(
-    0xFF0F0F0F,
-    <int, Color>{
-      baseColor: Color(0xFF0F0F0F),
-      colorCode10: Color(0xFFCFCFCF),
-      colorCode20: Color(0xFFAFAFAF),
-      colorCode30: Color(0xFF878787),
-      colorCode40: Color(0xFF5F5F5F),
-      colorCode50: Color(0xFF373737),
-      colorCode60: Color(0xFF0D0D0D),
-      colorCode70: Color(0xFF0A0A0A),
-      colorCode80: Color(0xFF080808),
-      colorCode90: Color(0xFF050505),
-      colorCode100: Color(0xFF030303),
-    },
-  );
+  static const MaterialColor blue = MaterialColor(0xFF02369C, <int, Color>{
+    baseColor: Color(0xFFCCD7EB),
+    colorCode10: Color(0xFFABBCDE),
+    colorCode20: Color(0xFF809ACD),
+    colorCode30: Color(0xFF5679BD),
+    colorCode40: Color(0xFF2C58AC),
+    colorCode50: Color(0xFF2C58AC),
+    colorCode60: Color(0xFF022D82),
+    colorCode70: Color(0xFF012468),
+    colorCode80: Color(0xFF011B4E),
+    colorCode90: Color(0xFF011234),
+    colorCode100: Color(0xFF000B1F),
+  });
+  static const MaterialColor black = MaterialColor(0xFF0F0F0F, <int, Color>{
+    baseColor: Color(0xFF0F0F0F),
+    colorCode10: Color(0xFFCFCFCF),
+    colorCode20: Color(0xFFAFAFAF),
+    colorCode30: Color(0xFF878787),
+    colorCode40: Color(0xFF5F5F5F),
+    colorCode50: Color(0xFF373737),
+    colorCode60: Color(0xFF0D0D0D),
+    colorCode70: Color(0xFF0A0A0A),
+    colorCode80: Color(0xFF080808),
+    colorCode90: Color(0xFF050505),
+    colorCode100: Color(0xFF030303),
+  });
 }

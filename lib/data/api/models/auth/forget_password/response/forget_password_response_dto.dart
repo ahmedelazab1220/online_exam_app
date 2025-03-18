@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import '../../../../../../domain/entities/forget_password_entity.dart';
+import '../../../../../../domain/entities/auth/forget_password_entity.dart';
 
 part 'forget_password_response_dto.g.dart';
 

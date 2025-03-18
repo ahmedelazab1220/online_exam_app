@@ -2,7 +2,7 @@ import 'package:injectable/injectable.dart';
 import 'package:online_exam_app/domain/repositories/auth_repository.dart';
 
 import '../core/api_result.dart';
-import '../entities/reset_password_entity.dart';
+import '../entities/auth/reset_password_entity.dart';
 
 @injectable
 class ResetPasswordUseCase {

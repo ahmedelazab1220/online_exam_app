@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:online_exam_app/core/navigation/routes.dart';
 import 'package:online_exam_app/core/utils/validation/validator.dart';
-import 'package:online_exam_app/domain/entities/signup_user_entity.dart';
+import 'package:online_exam_app/domain/entities/auth/signup_user_entity.dart';
 import 'package:online_exam_app/domain/use_cases/signup_use_case.dart';
 
 import '../../../../../../core/base/base_state.dart';

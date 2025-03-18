@@ -1,6 +1,8 @@
 import '../../../domain/core/api_result.dart';
-import '../../../domain/entities/forget_password_entity.dart';
-import '../../../domain/entities/reset_password_entity.dart';
+import '../../../domain/entities/auth/authentication_response.dart';
+import '../../../domain/entities/auth/forget_password_entity.dart';
+import '../../../domain/entities/auth/reset_password_entity.dart';
+import '../../api/models/auth/login/request/login_user_request_dto.dart';
 import '../../api/models/auth/reset_password/request/reset_password_request_dto.dart';
 import '../../api/models/auth/signup/request/signup_request_dto.dart';
 import '../../api/models/auth/signup/response/signup_response_dto.dart';
@@ -17,5 +19,9 @@ abstract class AuthRemoteDatasource {
 
   Future<Result<SignupResponseDto>> signup(
     SignupRequestDto request,
+  );
+
+  Future<Result<AuthenticationResponse>> login(
+    LoginUserRequestDto request,
   );
 }

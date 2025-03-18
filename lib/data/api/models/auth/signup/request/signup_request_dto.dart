@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:online_exam_app/domain/entities/signup_user_entity.dart';
+import 'package:online_exam_app/domain/entities/auth/signup_user_entity.dart';
 
 part 'signup_request_dto.g.dart';
 

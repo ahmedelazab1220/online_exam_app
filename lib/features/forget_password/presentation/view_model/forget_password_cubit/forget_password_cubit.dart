@@ -7,7 +7,7 @@ import '../../../../../core/base/base_state.dart';
 import '../../../../../core/utils/providers/user_session_provider.dart';
 import '../../../../../core/utils/validation/validator.dart';
 import '../../../../../domain/core/api_result.dart';
-import '../../../../../domain/entities/forget_password_entity.dart';
+import '../../../../../domain/entities/auth/forget_password_entity.dart';
 import '../../../../../domain/use_cases/forget_password_use_case.dart';
 
 part 'forget_password_state.dart';

@@ -7,7 +7,7 @@ import '../../../../../core/di/di.dart';
 import '../../../../../core/utils/providers/user_session_provider.dart';
 import '../../../../../core/utils/validation/validator.dart';
 import '../../../../../domain/core/api_result.dart';
-import '../../../../../domain/entities/reset_password_entity.dart';
+import '../../../../../domain/entities/auth/reset_password_entity.dart';
 import '../../../../../domain/use_cases/reset_password_use_case.dart';
 
 part 'reset_password_state.dart';
