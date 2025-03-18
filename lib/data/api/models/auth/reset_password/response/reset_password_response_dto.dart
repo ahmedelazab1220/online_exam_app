@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:online_exam_app/domain/entities/reset_password_entity.dart';
+import 'package:online_exam_app/domain/entities/auth/reset_password_entity.dart';
 
 part 'reset_password_response_dto.g.dart';
 

@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 
 import '../core/api_result.dart';
-import '../entities/signup_user_entity.dart';
+import '../entities/auth/signup_user_entity.dart';
 import '../repositories/auth_repository.dart';
 
 @injectable
