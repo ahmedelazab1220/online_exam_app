@@ -37,7 +37,10 @@
   "Profile": {
     "Profile": "الملف الشخصي",
     "EditProfile": "تعديل الملف الشخصي",
-    "Change": "تغيير"
+    "Change": "تغيير",
+    "ChangePassword": "تغيير كلمة المرور",
+    "ResetPassword": "تعديل كلمة المرور"
+   , "Update" : "تحديث"
   },
   "Home": {
     "Explore": "استكشاف",

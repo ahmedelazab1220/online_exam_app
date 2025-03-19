@@ -37,7 +37,10 @@
   "Profile": {
     "Profile": "Profile",
     "EditProfile": "Edit profile",
-    "Change": "Change"
+    "Change": "Change",
+    "ChangePassword": "Change Password",
+    "Update": "Update",
+    "ResetPassword": "Reset Password"
   },
   "Home": {
     "Explore": "Explore",
