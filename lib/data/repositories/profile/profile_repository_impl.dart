@@ -8,7 +8,7 @@ import '../../datasource/contract/profile/profile_data_remote_datasource.dart';
 @Injectable(as: ProfileRepository)
 
 class ProfileRepositoryImpl implements ProfileRepository {
-  final ProfileDataRemoteDatasource profileDataRemoteDatasource;
+  final ProfileRemoteDatasource profileDataRemoteDatasource;
   ProfileRepositoryImpl(this.profileDataRemoteDatasource);
 
   @override

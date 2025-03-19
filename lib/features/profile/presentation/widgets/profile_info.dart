@@ -17,18 +17,18 @@ class ProfileInfo extends StatefulWidget{
 }
 
 class _ProfileInfoState extends State<ProfileInfo> {
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   // cubit = getIt<ProfileCubit>();
-  //   cubit.doIntent(GetDataAction());
-  // }
+late ProfileCubit cubit;
+  @override
+  void initState() {
+    super.initState();
+    cubit = getIt<ProfileCubit>();
+    cubit.doIntent(GetDataAction());
+  }
 
 @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<ProfileCubit>()..doIntent(GetDataAction()),
+      create: (context) => cubit,
       child: BlocBuilder<ProfileCubit, ProfileState>(
           builder: (context,state){
             if (state.baseState is BaseLoadingState) {

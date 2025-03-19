@@ -7,15 +7,15 @@ import '../../../api/api_manager.dart';
 import '../../../api/profile/profile_retrofit_client.dart';
 import '../../contract/profile/profile_data_remote_datasource.dart';
 
-@Injectable(as: ProfileDataRemoteDatasource)
+@Injectable(as: ProfileRemoteDatasource)
 
-class ProfileDataRemoteDataSourceImpl implements ProfileDataRemoteDatasource{
+class ProfileRemoteDataSourceImpl implements ProfileRemoteDatasource{
 
   final ProfileRetrofitClient profileRetrofitClient;
   final ApiManager apiManager;
   final FlutterSecureStorage secureStorage;
 
-  ProfileDataRemoteDataSourceImpl(this.profileRetrofitClient,this.apiManager,this.secureStorage);
+  ProfileRemoteDataSourceImpl(this.profileRetrofitClient,this.apiManager,this.secureStorage);
 
   @override
   Future<Result<ProfileDataResponseDto>> getProfileData(String token) async {

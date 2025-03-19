@@ -110,14 +110,14 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i797.AuthRetrofitClient>(),
           gh<_i442.ApiManager>(),
         ));
-    gh.factory<_i797.ProfileDataRemoteDatasource>(
-        () => _i52.ProfileDataRemoteDataSourceImpl(
+    gh.factory<_i797.ProfileRemoteDatasource>(
+        () => _i52.ProfileRemoteDataSourceImpl(
               gh<_i312.ProfileRetrofitClient>(),
               gh<_i442.ApiManager>(),
               gh<_i558.FlutterSecureStorage>(),
             ));
     gh.factory<_i47.ProfileRepository>(() =>
-        _i770.ProfileRepositoryImpl(gh<_i797.ProfileDataRemoteDatasource>()));
+        _i770.ProfileRepositoryImpl(gh<_i797.ProfileRemoteDatasource>()));
     gh.factory<_i1073.AuthRepository>(() => _i895.AuthRepositoryImpl(
           gh<_i488.AuthLocalDatasource>(),
           gh<_i912.AuthRemoteDatasource>(),
