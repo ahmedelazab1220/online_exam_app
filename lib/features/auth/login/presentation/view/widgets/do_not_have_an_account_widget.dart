@@ -18,7 +18,7 @@ class DonotHaveAnAccountWidget extends StatelessWidget {
         children: [
           TextSpan(
             text: LocaleKeys.Authentication_SignUp.tr(),
-            style: TextStyle(
+            style: const TextStyle(
               decoration: TextDecoration.underline,
               color: AppColors.blue,
               fontWeight: FontWeight.bold,

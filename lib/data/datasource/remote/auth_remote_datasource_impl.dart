@@ -21,9 +21,9 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
 
   @override
   Future<Result<ForgetPasswordEntity>> forgetPassword(String email) async {
-    var response = await apiManager.execute<ForgetPasswordEntity>(
+    final response = await apiManager.execute<ForgetPasswordEntity>(
       () async {
-        var response = await authRetrofitClient
+        final response = await authRetrofitClient
             .forgetPassword(ForgetPasswordRequestDto(email: email));
         return response.toDomain();
       },
@@ -33,9 +33,9 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
 
   @override
   Future<Result<VerifyOtpCodeResponseDto>> verifyOtp(String otpCode) async {
-    var response = await apiManager.execute<VerifyOtpCodeResponseDto>(
+    final response = await apiManager.execute<VerifyOtpCodeResponseDto>(
       () async {
-        var response = await authRetrofitClient
+        final response = await authRetrofitClient
             .verifyOtp(VerifyOtpCodeRequestDto(otpCode: otpCode));
         return response;
       },
@@ -46,9 +46,9 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
   @override
   Future<Result<ResetPasswordEntity>> resetPassword(
       ResetPasswordRequestDto resetPasswordRequestDto) async {
-    var response = await apiManager.execute<ResetPasswordEntity>(
+    final response = await apiManager.execute<ResetPasswordEntity>(
       () async {
-        var response = await authRetrofitClient.resetPassword(
+        final response = await authRetrofitClient.resetPassword(
           resetPasswordRequestDto,
         );
         return response.toDomain();
@@ -59,9 +59,9 @@ class AuthRemoteDatasourceImpl implements AuthRemoteDatasource {
 
   @override
   Future<Result<SignupResponseDto>> signup(SignupRequestDto request) async {
-    var response = await apiManager.execute<SignupResponseDto>(
+    final response = await apiManager.execute<SignupResponseDto>(
       () async {
-        var response = await authRetrofitClient.signup(request);
+        final response = await authRetrofitClient.signup(request);
         return response;
       },
     );

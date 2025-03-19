@@ -10,7 +10,7 @@ class ForgetPasswordForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var viewModel = BlocProvider.of<ForgetPasswordCubit>(context);
+    final viewModel = BlocProvider.of<ForgetPasswordCubit>(context);
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: SingleChildScrollView(
@@ -31,7 +31,7 @@ class ForgetPasswordForm extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16.0,
               ),
               Row(
@@ -48,7 +48,7 @@ class ForgetPasswordForm extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 32.0,
               ),
               TextFormField(
@@ -64,7 +64,7 @@ class ForgetPasswordForm extends StatelessWidget {
                 onTapOutside: (_) =>
                     FocusManager.instance.primaryFocus?.unfocus(),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 24.0,
               ),
               ValueListenableBuilder(

@@ -139,7 +139,7 @@ class AppTheme {
       labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>(
             (Set<WidgetState> states) {
           if (states.contains(WidgetState.selected)) {
-            return TextStyle(color: AppColors.blue, fontWeight: FontWeight.w600);
+            return const TextStyle(color: AppColors.blue, fontWeight: FontWeight.w600);
           }
           return TextStyle(color: AppColors.black[30], fontWeight: FontWeight.w500);
         },

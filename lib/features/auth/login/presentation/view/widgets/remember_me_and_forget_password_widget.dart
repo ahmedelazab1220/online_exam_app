@@ -31,7 +31,7 @@ class _RememberMeAndForgetPasswordWidgetState
           LocaleKeys.Authentication_RememberMe.tr(),
           style: Theme.of(context).textTheme.titleSmall,
         ),
-        Spacer(),
+        const Spacer(),
         TextButton(
           onPressed: () {
             // just for test when add viewModel i'll remove it.

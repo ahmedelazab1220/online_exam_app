@@ -11,7 +11,7 @@ class SignUpForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var viewModel = BlocProvider.of<SignupCubit>(context);
+    final viewModel = BlocProvider.of<SignupCubit>(context);
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),

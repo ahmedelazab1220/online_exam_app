@@ -11,7 +11,7 @@ class AlreadyHaveAccountSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var viewModel = BlocProvider.of<SignupCubit>(context);
+    final viewModel = BlocProvider.of<SignupCubit>(context);
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
@@ -20,7 +20,7 @@ class AlreadyHaveAccountSignUp extends StatelessWidget {
         children: [
           TextSpan(
             text: LocaleKeys.Authentication_Login.tr(),
-            style: TextStyle(
+            style: const TextStyle(
               decoration: TextDecoration.underline,
               color: AppColors.blue,
               fontWeight: FontWeight.bold,

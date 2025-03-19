@@ -23,7 +23,7 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<Result<ForgetPasswordEntity>> forgetPassword({
     required String email,
   }) async {
-    var response = await authRemoteDatasource.forgetPassword(email);
+    final response = await authRemoteDatasource.forgetPassword(email);
     return response;
   }
 
@@ -31,7 +31,7 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<Result<VerifyOtpCodeResponseDto>> verifyOtpCode({
     required String otpCode,
   }) async {
-    var response = await authRemoteDatasource.verifyOtp(otpCode);
+    final response = await authRemoteDatasource.verifyOtp(otpCode);
     return response;
   }
 
@@ -40,7 +40,7 @@ class AuthRepositoryImpl implements AuthRepository {
     required String email,
     required String newPassword,
   }) async {
-    var response = await authRemoteDatasource.resetPassword(
+    final response = await authRemoteDatasource.resetPassword(
       ResetPasswordRequestDto(email: email, newPassword: newPassword),
     );
     if (response is SuccessResult<ResetPasswordEntity>) {
@@ -56,7 +56,7 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<Result<void>> signup({
     required SignupUserEntity signupUserEntity,
   }) async {
-    var response = await authRemoteDatasource
+    final response = await authRemoteDatasource
         .signup(SignupRequestDto.fromDomain(signupUserEntity));
     if (response is SuccessResult<SignupResponseDto>) {
       await authLocalDatasource.saveToken(
