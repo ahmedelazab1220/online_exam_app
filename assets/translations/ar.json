@@ -39,8 +39,8 @@
     "EditProfile": "تعديل الملف الشخصي",
     "Change": "تغيير",
     "ChangePassword": "تغيير كلمة المرور",
-    "Update": "تعديل",
     "ResetPassword": "تعديل كلمة المرور"
+   , "Update" : "تحديث"
   },
   "Home": {
     "Explore": "استكشاف",

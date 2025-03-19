@@ -12,6 +12,7 @@ import '../models/auth/signup/request/signup_request_dto.dart';
 import '../models/auth/signup/response/signup_response_dto.dart';
 import '../models/auth/verify_otp_code/request/verify_otp_code_request_dto.dart';
 import '../models/auth/verify_otp_code/response/verify_otp_code_response_dto.dart';
+import '../models/profile/user_data/response/profile_data_response_dto.dart';
 
 part 'auth_retrofit_client.g.dart';
 
@@ -45,4 +46,6 @@ abstract class AuthRetrofitClient {
   Future<LoginUserResponseDto> login(
     @Body() LoginUserRequestDto request,
   );
+
+
 }

@@ -19,18 +19,26 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart' as _i528;
 import '../../data/api/api_manager.dart' as _i442;
 import '../../data/api/auth/auth_retrofit_client.dart' as _i797;
 import '../../data/api/dio_module.dart' as _i719;
+import '../../data/api/profile/profile_retrofit_client.dart' as _i312;
 import '../../data/datasource/contract/auth_local_datasource.dart' as _i488;
 import '../../data/datasource/contract/auth_remote_datasource.dart' as _i912;
+import '../../data/datasource/contract/profile/profile_data_remote_datasource.dart'
+    as _i797;
 import '../../data/datasource/local/auth_local_datasource_impl.dart' as _i938;
 import '../../data/datasource/remote/auth_remote_datasource_impl.dart' as _i498;
+import '../../data/datasource/remote/profile/profile_remote_datasource_impl.dart'
+    as _i52;
 import '../../data/local_database/models/user/local_user.dart' as _i231;
 import '../../data/local_database/user_local_database/user_local_database.dart'
     as _i179;
 import '../../data/repositories/auth_repository_impl.dart' as _i895;
+import '../../data/repositories/profile/profile_repository_impl.dart' as _i770;
 import '../../domain/repositories/auth_repository.dart' as _i1073;
+import '../../domain/repositories/profile_repository.dart' as _i47;
 import '../../domain/use_cases/forget_password_use_case.dart' as _i755;
 import '../../domain/use_cases/login_use_case.dart' as _i471;
 import '../../domain/use_cases/otp_verify_use_case.dart' as _i833;
+import '../../domain/use_cases/profile/profile_data_use_case.dart' as _i771;
 import '../../domain/use_cases/reset_password_use_case.dart' as _i638;
 import '../../domain/use_cases/signup_use_case.dart' as _i445;
 import '../../features/auth/login/presentation/view_model/login_cubit/login_cubit.dart'
@@ -43,6 +51,8 @@ import '../../features/forget_password/presentation/view_model/forget_password_c
     as _i1009;
 import '../../features/otp_verify/presentation/view_model/otp_verify_cubit/otp_verify_cubit.dart'
     as _i897;
+import '../../features/profile/presentation/view_model/profile_cubit.dart'
+    as _i542;
 import '../../features/reset_password/presentation/view_model/reset_password_cubit/reset_password_cubit.dart'
     as _i906;
 import '../utils/app_initialzer.dart' as _i860;
@@ -94,10 +104,20 @@ extension GetItInjectableX on _i174.GetIt {
         ));
     gh.lazySingleton<_i797.AuthRetrofitClient>(
         () => _i797.AuthRetrofitClient(gh<_i361.Dio>()));
+    gh.lazySingleton<_i312.ProfileRetrofitClient>(
+        () => _i312.ProfileRetrofitClient(gh<_i361.Dio>()));
     gh.factory<_i912.AuthRemoteDatasource>(() => _i498.AuthRemoteDatasourceImpl(
           gh<_i797.AuthRetrofitClient>(),
           gh<_i442.ApiManager>(),
         ));
+    gh.factory<_i797.ProfileDataRemoteDatasource>(
+        () => _i52.ProfileDataRemoteDataSourceImpl(
+              gh<_i312.ProfileRetrofitClient>(),
+              gh<_i442.ApiManager>(),
+              gh<_i558.FlutterSecureStorage>(),
+            ));
+    gh.factory<_i47.ProfileRepository>(() =>
+        _i770.ProfileRepositoryImpl(gh<_i797.ProfileDataRemoteDatasource>()));
     gh.factory<_i1073.AuthRepository>(() => _i895.AuthRepositoryImpl(
           gh<_i488.AuthLocalDatasource>(),
           gh<_i912.AuthRemoteDatasource>(),
@@ -106,6 +126,8 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i860.AppInitializer(gh<_i186.UserSessionProvider>()));
     gh.factory<_i445.SignupUseCase>(
         () => _i445.SignupUseCase(gh<_i1073.AuthRepository>()));
+    gh.factory<_i771.ProfileDataUseCase>(() =>
+        _i771.ProfileDataUseCase(repository: gh<_i47.ProfileRepository>()));
     gh.factory<_i755.ForgetPasswordUseCase>(() =>
         _i755.ForgetPasswordUseCase(repository: gh<_i1073.AuthRepository>()));
     gh.factory<_i833.OtpVerifyUseCase>(
@@ -118,6 +140,11 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i471.LoginUseCase(gh<_i1073.AuthRepository>()));
     gh.factory<_i638.ResetPasswordUseCase>(
         () => _i638.ResetPasswordUseCase(gh<_i1073.AuthRepository>()));
+    gh.factory<_i542.ProfileCubit>(() => _i542.ProfileCubit(
+          gh<_i771.ProfileDataUseCase>(),
+          gh<_i225.Validator>(),
+          gh<_i558.FlutterSecureStorage>(),
+        ));
     gh.factory<_i289.SignupCubit>(() => _i289.SignupCubit(
           gh<_i445.SignupUseCase>(),
           gh<_i225.Validator>(),
