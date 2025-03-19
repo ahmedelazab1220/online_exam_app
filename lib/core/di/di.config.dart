@@ -128,6 +128,7 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i445.SignupUseCase(gh<_i1073.AuthRepository>()));
     gh.factory<_i771.ProfileDataUseCase>(() =>
         _i771.ProfileDataUseCase(repository: gh<_i47.ProfileRepository>()));
+
     gh.factory<_i755.ForgetPasswordUseCase>(() =>
         _i755.ForgetPasswordUseCase(repository: gh<_i1073.AuthRepository>()));
     gh.factory<_i833.OtpVerifyUseCase>(
@@ -145,6 +146,7 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i225.Validator>(),
           gh<_i558.FlutterSecureStorage>(),
         ));
+
     gh.factory<_i289.SignupCubit>(() => _i289.SignupCubit(
           gh<_i445.SignupUseCase>(),
           gh<_i225.Validator>(),

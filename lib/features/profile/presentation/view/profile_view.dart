@@ -13,7 +13,6 @@ class ProfileView extends StatelessWidget {
     return  Scaffold(
       appBar: AppBar(
         title: Text(LocaleKeys.Profile_Profile.tr()),
-      ),
       body : SingleChildScrollView(
         child: Column(
           children: [

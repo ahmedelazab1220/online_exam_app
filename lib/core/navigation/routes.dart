@@ -27,5 +27,6 @@ class AppRoutes {
     resetPasswordRoute: (context) => ResetPasswordView(),
     profileRoute: (context) => ProfileView(),
     changePasswordRoute: (context) => ChangePasswordView(),
+
   };
 }
